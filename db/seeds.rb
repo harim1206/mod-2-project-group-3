@@ -10,7 +10,16 @@
   Family.create(family_name: Faker::Hipster.word)
 end
 
-Person.create(first_name: Faker::Hipster.word, bio: Faker::Hipster.paragraph, family_id:1)
+
+
+Person.create(first_name: "Bob", family_id:1)
+Person.create(first_name: "Harim", family_id:1)
+Person.create(first_name: "Celeste", family_id:1)
+Person.create(first_name: "Kate", family_id:1)
+Person.create(first_name: "Eric", family_id:1)
+
+
+
 Person.create(first_name: Faker::Hipster.word, bio: Faker::Hipster.paragraph, family_id:2)
 Person.create(first_name: Faker::Hipster.word, bio: Faker::Hipster.paragraph, family_id:3)
 Person.create(first_name: Faker::Hipster.word, bio: Faker::Hipster.paragraph, family_id:4)
@@ -18,6 +27,11 @@ Person.create(first_name: Faker::Hipster.word, bio: Faker::Hipster.paragraph, fa
 
 
 Memory.create(description: Faker::Hipster.word, family_id: 1)
+Memory.create(description: Faker::Hipster.word, family_id: 1)
+Memory.create(description: Faker::Hipster.word, family_id: 1)
+Memory.create(description: Faker::Hipster.word, family_id: 1)
+Memory.create(description: Faker::Hipster.word, family_id: 1)
+
 Memory.create(description: Faker::Hipster.word, family_id: 2)
 Memory.create(description: Faker::Hipster.word, family_id: 3)
 Memory.create(description: Faker::Hipster.word, family_id: 4)
@@ -26,3 +40,4 @@ Tag.create(person_id:1, memory_id:1)
 Tag.create(person_id:2, memory_id:2)
 Tag.create(person_id:3, memory_id:3)
 Tag.create(person_id:4, memory_id:4)
+Tag.create(person_id:5, memory_id:5)

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :memories
   resources :people
+  resources :families
 
 
 end
