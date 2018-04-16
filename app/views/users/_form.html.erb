@@ -1,0 +1,14 @@
+<div class="text-field">
+  <%= form_for @user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email, type: 'email' %>
+</div>
+
+<div class="password-field">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <% end %>
+</div>
