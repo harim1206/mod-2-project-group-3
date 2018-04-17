@@ -1,0 +1,9 @@
+<%= form_for(@memory) do |f| %>
+  <%= f.label :title %><br/>
+  <%= f.text_field :title %><br/>
+  <%= f.label :description %><br/>
+  <%= f.text_field :description %><br/>
+  <%= f.label :image_url %><br/>
+  <%= f.text_field :image_url %><br/>
+  <%= f.submit %>
+<% end %>

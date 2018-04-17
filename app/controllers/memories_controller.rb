@@ -1,6 +1,7 @@
 class MemoriesController < ApplicationController
   def index
-    @memories = current_user.family.memories
+    @family = current_user.family
+    @memories = @family.memories
 
   end
 
@@ -24,6 +25,16 @@ class MemoriesController < ApplicationController
   end
 
   def edit
+    @memory = Memory.find(params[:id])
+
+
+  end
+
+  def update
+    @memory = Memory.find(params[:id])
+    @memory.update(memory_params)
+
+    redirect_to @memory
 
   end
 
@@ -31,7 +42,7 @@ class MemoriesController < ApplicationController
 
   def memory_params
 
-    params.require(:memory).permit(:description)
+    params.require(:memory).permit(:title, :description, :image_url)
   end
 
 end

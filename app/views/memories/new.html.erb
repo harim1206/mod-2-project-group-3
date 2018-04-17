@@ -1,7 +1,4 @@
-"NEW MEMORY"
+<h1>Create a New Memory</h1>
+<br/>
 
-<%= form_for(@memory) do |f| %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>

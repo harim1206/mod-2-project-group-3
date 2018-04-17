@@ -1,4 +1,8 @@
-<h1>  <%=  @memory.description %></h1>
+<h1>  <%=  @memory.title %></h1>
 
-<%= link_to("Edit Memory", edit_memory_path )%>
-<%= link_to("All Memories", memories_path) %>
+<img src= "<%= @memory.image_url %>"/><br/>
+<p>  <%=  @memory.description %></p>
+
+
+<%= link_to("Edit Memory", edit_memory_path )%><br/>
+<%= link_to("All Memories", memories_path) %><br/>
