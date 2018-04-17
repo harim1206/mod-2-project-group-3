@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20180416214427) do
   create_table "families", force: :cascade do |t|
     t.string "family_name"
     t.string "image_url"
-    t.string "family_info"
     t.string "password_digest"
+    t.string "family_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20180416214427) do
     t.date "dob"
     t.date "dod"
     t.string "image_url"
-    t.boolean "is_account?", default: false
+    t.boolean "is_account", default: false
     t.string "username"
     t.string "password_digest"
     t.integer "family_id"

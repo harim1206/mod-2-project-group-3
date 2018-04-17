@@ -2,6 +2,7 @@ class MemoriesController < ApplicationController
   before_action :authorize
 
   def index
+    @family = current_user.family
     @memories = current_user.family.memories
   end
 

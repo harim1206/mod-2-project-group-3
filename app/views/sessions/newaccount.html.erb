@@ -1,20 +1,21 @@
 <% if flash[:errors] %>
   <ul>
+    <br>
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>
     <% end %>
   </ul>
 <% end %>
 
-<h2>New Person Signup!</h2>
+<h2>New Person Signup</h2>
 
 <%= form_for @person, url: '/people' do |f| %>
 
-  First Name: <%= f.text_field :first_name %><br>
-  Last Name:<%= f.text_field :last_name %><br>
-  Family: <%= f.collection_select :family_id, @families, :id, :family_name_and_id, prompt: true%><br>
-  Username: <%= f.text_field :username %><br>
-  Password: <%= f.password_field :password %><br>
-  Password Confirmation: <%= f.password_field :password_confirmation %><br>
+  First Name: <%= f.text_field :first_name %><br><br>
+  Last Name:<%= f.text_field :last_name %><br><br>
+  Family: <%= f.collection_select :family_id, @families, :id, :family_name_and_id, prompt: true%><br><br>
+  Username: <%= f.text_field :username %><br><br>
+  Password: <%= f.password_field :password %><br><br>
+  Password Confirmation: <%= f.password_field :password_confirmation %><br><br>
   <%= f.submit "Submit" %>
 <% end %>

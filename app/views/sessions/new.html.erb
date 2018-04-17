@@ -1,16 +1,16 @@
 <% if flash[:error] %>
+  <br>
   <h2>
     <%= flash[:error] %>
   </h2>
 <% end %>
 
-<h1>Ancestry Project</h1>
 <h2>Login</h2>
 
 <%= form_tag '/login' do %>
 
-  Username: <%= text_field_tag :username %> <br>
-  Password: <%= password_field_tag :password %><br>
+  Username: <%= text_field_tag :username %> <br><br>
+  Password: <%= password_field_tag :password %><br><br>
   <%= submit_tag "Submit" %>
 
 <% end %>
