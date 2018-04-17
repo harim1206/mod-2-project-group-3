@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   def createaccount
     @person = Person.new(person_params)
     # @person.is_account? = true
-    byebug
+    # byebug
     if @person.save
       redirect_to '/'
     else

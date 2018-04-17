@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20180416214427) do
     t.string "family_name"
     t.string "image_url"
     t.string "family_info"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,6 +25,7 @@ ActiveRecord::Schema.define(version: 20180416214427) do
     t.string "image_url"
     t.string "description"
     t.date "date"
+    t.string "memory_title"
     t.integer "family_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,7 +39,7 @@ ActiveRecord::Schema.define(version: 20180416214427) do
     t.date "dob"
     t.date "dod"
     t.string "image_url"
-    t.boolean "is_account?"
+    t.boolean "is_account?", default: false
     t.string "username"
     t.string "password_digest"
     t.integer "family_id"
