@@ -1,7 +1,20 @@
-"NEW PERSON"
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
 
-<%= form_for(@person) do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <%= f.submit %>
+<h1>New Person Signup!</h1>
+
+<%= form_for @person do |f| %>
+
+  First Name: <%= f.text_field :first_name %><br>
+  Last Name:<%= f.text_field :last_name %><br>
+  Family: <%= f.collection_select :family_id, @families, :id, :family_name_and_id, prompt: true%><br>
+  Username: <%= f.text_field :username %><br>
+  Password: <%= f.password_field :password %><br>
+  Password Confirmation: <%= f.password_field :password_confirmation %><br>
+  <%= f.submit "Submit" %>
 <% end %>

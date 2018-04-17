@@ -1,10 +1,8 @@
 class FamiliesController < ApplicationController
-
+before_action :authorize, only: [:show]
 
   def show
-    @family = Family.find(1)
-    
-
+    @family = current_user.family
   end
 
 

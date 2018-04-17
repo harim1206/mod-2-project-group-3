@@ -1,4 +1,5 @@
 class MemoriesController < ApplicationController
+  before_action :authorize
   def index
     @memories = current_user.family.memories
 
@@ -19,8 +20,7 @@ class MemoriesController < ApplicationController
   end
 
   def show
-    @memory = Memory.find(params[:id])
-
+    @memory = current_user.memories.find(params[:id])
   end
 
   def edit

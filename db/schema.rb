@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20180416173646) do
     t.date "dob"
     t.date "dod"
     t.string "image_url"
-    t.boolean "is_account"
+    t.boolean "is_account?"
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.integer "family_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
