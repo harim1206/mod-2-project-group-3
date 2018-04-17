@@ -1,7 +1,14 @@
 <h1>  <%=  @memory.title %></h1>
 
 <img src= "<%= @memory.image_url %>"/><br/>
-<p>  <%=  @memory.description %></p>
+
+<p> tagged people: <br/><br/>
+<% @tagged_people.each do |p| %>
+  <%= link_to p.full_name, p %>,
+<% end %>
+</p><br/>
+
+<p> Description: <br/><br/> <%=  @memory.description %></p>
 
 
 <%= link_to("Edit Memory", edit_memory_path )%><br/>

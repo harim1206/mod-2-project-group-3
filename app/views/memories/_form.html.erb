@@ -5,5 +5,8 @@
   <%= f.text_field :description %><br/>
   <%= f.label :image_url %><br/>
   <%= f.text_field :image_url %><br/>
+
+  <%= f.collection_check_boxes(:person_ids, @people, :id, :full_name) %>
+
   <%= f.submit %>
 <% end %>

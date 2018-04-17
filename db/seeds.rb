@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 4.times do
-  Family.create(family_name: Faker::Hipster.word)
+  Family.create(family_name: Faker::Hipster.word, password: "1")
 end
 
 Person.create(first_name: "Bob", last_name: "Bob", username: "Bob", password: "1", family_id:2)

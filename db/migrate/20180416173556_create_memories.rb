@@ -4,7 +4,7 @@ class CreateMemories < ActiveRecord::Migration[5.1]
       t.string :image_url
       t.string :description
       t.date :date
-      t.string :memory_title
+      t.string :title
       t.integer :family_id
 
       t.timestamps
