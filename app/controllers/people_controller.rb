@@ -1,20 +1,23 @@
 class PeopleController < ApplicationController
+  before_action :authorize
+
   def index
     @people = current_user.family.people
   end
 
   def new
-    @person = Person.new()
+    # @person = Person.new()
+    # @families = Family.all
   end
 
   def create
-
-    @person = Person.new(person_params)
-    @person.family_id = current_user.family.id
-    @person.save
-
-    redirect_to @person
-
+    # @person = Person.new(person_params)
+    # if @person.save
+    #   redirect_to '/'
+    # else
+    #   flash[:errors] = @person.errors.full_messages
+    #   redirect_to signup_path
+    # end
   end
 
   def show
@@ -43,6 +46,7 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :bio, :dob, :dod, :image_url)
+    params.require(:person).permit(:first_name, :last_name,
+      :username, :password, :password_confirmation, :family_id)
   end
 end

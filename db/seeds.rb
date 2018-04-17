@@ -10,21 +10,11 @@
   Family.create(family_name: Faker::Hipster.word)
 end
 
-
-
-Person.create(first_name: "Bob", family_id:1)
-Person.create(first_name: "Harim", family_id:1)
-Person.create(first_name: "Celeste", family_id:1)
-Person.create(first_name: "Kate", family_id:1)
-Person.create(first_name: "Eric", family_id:1)
-
-
-
-Person.create(first_name: Faker::Hipster.word, bio: Faker::Hipster.paragraph, family_id:2)
-Person.create(first_name: Faker::Hipster.word, bio: Faker::Hipster.paragraph, family_id:3)
-Person.create(first_name: Faker::Hipster.word, bio: Faker::Hipster.paragraph, family_id:4)
-
-
+Person.create(first_name: "Bob", last_name: "Bob", username: "Bob", password: "1", family_id:2)
+Person.create(first_name: "Harim", last_name: "Choi", username: "Harim", password: "1", family_id:1)
+Person.create(first_name: "Celeste", last_name: "Gerard", username: "Celeste", password: "1", family_id:1)
+Person.create(first_name: "Kate", last_name: "Schlunz", username: "Kate", password: "1", family_id:1)
+Person.create(first_name: "Eric", last_name: "Kim", username: "Eric", password: "1", family_id:1)
 
 Memory.create(description: Faker::Hipster.word, family_id: 1)
 Memory.create(description: Faker::Hipster.word, family_id: 1)

@@ -7,9 +7,9 @@ class CreatePeople < ActiveRecord::Migration[5.1]
       t.date :dob
       t.date :dod
       t.string :image_url
-      t.boolean :is_account
+      t.boolean :is_account?
       t.string :username
-      t.string :password
+      t.string :password_digest
       t.integer :family_id
 
       t.timestamps

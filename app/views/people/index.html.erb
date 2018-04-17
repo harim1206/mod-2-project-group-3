@@ -1,9 +1,8 @@
-
-
-
 <% @people.each do |person| %>
   <ul>
     <li> <%=  link_to(person.first_name, person )%></li>
   </ul>
 
 <% end %>
+
+<%= link_to("Home", '/') %>
