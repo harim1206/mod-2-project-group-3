@@ -22,7 +22,19 @@ class PeopleController < ApplicationController
   end
 
   def edit
+    @person = Person.find(params[:id])
 
+  end
+
+  def update
+    @person = Person.update(person_params)
+    redirect_to person_path(@person)
+
+  end
+
+  def destroy
+   @person = Person.destroy(params[:id])
+   redirect_to people_path
   end
 
 
@@ -31,6 +43,6 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:first_name)
+    params.require(:person).permit(:first_name, :last_name, :bio, :dob, :dod, :image_url)
   end
 end

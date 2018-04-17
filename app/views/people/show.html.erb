@@ -1,5 +1,15 @@
-<h1> <%=  @person.first_name %></h1>
+<h1> <%=  @person.first_name %> <%= @person.last_name %></h1>
 
-<%= link_to("Edit Person", edit_person_path )%>
+<img src=" <%= @person.image_url %> " alt="">
 
-<%= link_to("All People", people_path) %>
+  <ul>
+    <label>Biography: </label>  <%= @person.bio %></br></br>
+    <label>Date of Birth: </label>  <%= @person.dob %></br></br>
+    <label>Date of Death: </label>  <%= @person.dod %></br></br>
+  </ul>
+
+  </br></br></br></br>
+
+<%= link_to("Edit Person", edit_person_path )%></br></br>
+
+<%= link_to("All People", people_path) %></br></br>
