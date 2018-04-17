@@ -1,25 +1,23 @@
 class PeopleController < ApplicationController
-  before_action :authorize, only:[:index, :show, :edit]
+  before_action :authorize
 
   def index
     @people = current_user.family.people
   end
-  #THIS IS GOOD
 
-  #CREATION OF LOGIN
   def new
-    @person = Person.new()
-    @families = Family.all
+    # @person = Person.new()
+    # @families = Family.all
   end
 
   def create
-    @person = Person.new(person_params)
-    if @person.save
-      redirect_to '/'
-    else
-      flash[:errors] = @person.errors.full_messages
-      redirect_to signup_path
-    end
+    # @person = Person.new(person_params)
+    # if @person.save
+    #   redirect_to '/'
+    # else
+    #   flash[:errors] = @person.errors.full_messages
+    #   redirect_to signup_path
+    # end
   end
 
   def show

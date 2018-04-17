@@ -27,4 +27,27 @@ class SessionsController < ApplicationController
     session[:person_id] = nil
     redirect_to '/login'
   end
+
+  def newaccount
+    @person = Person.new()
+    @families = Family.all
+    render "sessions/newaccount.html.erb"
+  end
+
+  def createaccount
+    @person = Person.new(person_params)
+    if @person.save
+      redirect_to '/'
+    else
+      flash[:errors] = @person.errors.full_messages
+      redirect_to signup_path
+    end
+  end
+
+  private
+
+  def person_params
+    params.require(:person).permit(:first_name, :last_name,
+      :username, :password, :password_confirmation, :family_id)
+  end
 end
