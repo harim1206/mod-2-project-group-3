@@ -1,12 +1,28 @@
 class SessionsController < ApplicationController
   before_action :authorize, only: [:show]
 
-  def index
+  def newaccount
+    @person = Person.new()
+    @families = Family.all
+    render "sessions/newaccount.html.erb"
+  end
 
+  def createaccount
+    @person = Person.new(person_params)
+    # @person.is_account? = true
+    byebug
+    if @person.save
+      redirect_to '/'
+    else
+      flash[:errors] = @person.errors.full_messages
+      redirect_to signup_path
+    end
+  end
+
+  def index
   end
 
   def new
-
   end
 
   def show
@@ -26,22 +42,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:person_id] = nil
     redirect_to '/login'
-  end
-
-  def newaccount
-    @person = Person.new()
-    @families = Family.all
-    render "sessions/newaccount.html.erb"
-  end
-
-  def createaccount
-    @person = Person.new(person_params)
-    if @person.save
-      redirect_to '/'
-    else
-      flash[:errors] = @person.errors.full_messages
-      redirect_to signup_path
-    end
   end
 
   private
