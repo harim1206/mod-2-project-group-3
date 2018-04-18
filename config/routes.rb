@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get '/existingsignup' => 'sessions#choosefamily', as: :choosefamily
   post '/existingsignup' => 'sessions#choosemember'
+  post "/editaccount" => 'sessions#edit', as: :editaccount
+  patch '/updateaccount' => 'sessions#update'
 
   get '/signup' => 'sessions#newaccount', as: :signup
   post '/signup' => 'sessions#createaccount'
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
 
   get '/logout' => 'sessions#destroy'
 
+  resources :sessions, only: [:edit, :update]
   resources :memories
   resources :people
   resources :families
