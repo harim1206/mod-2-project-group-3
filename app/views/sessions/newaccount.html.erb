@@ -9,11 +9,12 @@
 
 <h2>New Person Signup</h2>
 
-<%= form_for @person, url: '/people' do |f| %>
+<%= form_for @person, url: '/signup' do |f| %>
 
   First Name: <%= f.text_field :first_name %><br><br>
   Last Name:<%= f.text_field :last_name %><br><br>
   Family: <%= f.collection_select :family_id, @families, :id, :family_name_and_id, prompt: true%><br><br>
+  Family Password: <%= f.password_field :family_password %><br><br>
   Username: <%= f.text_field :username %><br><br>
   Password: <%= f.password_field :password %><br><br>
   Password Confirmation: <%= f.password_field :password_confirmation %><br><br>

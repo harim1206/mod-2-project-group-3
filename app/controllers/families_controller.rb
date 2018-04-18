@@ -8,7 +8,7 @@ before_action :authorize, only: [:show]
   def create
     @family = Family.create(family_params)
     if @family.save
-      redirect_to '/'
+      redirect_to signup_path
     else
       flash[:errors] = @family.errors.full_messages
       redirect_to new_family_path
