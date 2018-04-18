@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: "sessions#show"
   get '/signup' => 'sessions#newaccount', as: :signup
-  post '/people' => 'sessions#createaccount'
+  post '/signup' => 'sessions#createaccount'
 
   get '/login' => 'sessions#new', as: :login
   post '/login' => 'sessions#create'

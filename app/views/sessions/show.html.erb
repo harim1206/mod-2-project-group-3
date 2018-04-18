@@ -2,6 +2,18 @@
 <%= link_to "View All Family Members", people_path %><br/>
 <%= link_to "View All Memories", memories_path %><br/>
 
+
+
+<% random_no = rand(@memories.length)
+random_image = @memories[random_no]
+final = random_image.image_url%>
+
+<%= link_to image_tag(final), memories_path(@memories) %>
+
+
+
+
+
 <br/><br/><br/><br/>
 <%= link_to "Add New Family Member", new_person_path %><br/>
 <%= link_to "Add New Memory", new_memory_path %><br/>

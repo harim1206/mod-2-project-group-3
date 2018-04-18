@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   def index
-    
+
     @people = current_user.family.people
   end
 
@@ -9,17 +9,21 @@ class PeopleController < ApplicationController
   end
 
   def create
-
     @person = Person.new(person_params)
     @person.family_id = current_user.family.id
-    @person.save
+    @person.password = "password"
+      # have to set password to default for not users
 
-    redirect_to @person
+      @person.save
+      redirect_to @person
+
+
 
   end
 
   def show
     @person = Person.find(params[:id])
+
   end
 
   def edit
@@ -34,6 +38,8 @@ class PeopleController < ApplicationController
   end
 
   def destroy
+
+    #need if statement to not be able to delete a person who has an account
    @person = Person.destroy(params[:id])
    redirect_to people_path
   end
@@ -44,7 +50,6 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name,
-      :username, :password, :password_confirmation, :family_id)
+    params.require(:person).permit(:first_name, :last_name, :bio, :dob, :dod, :image_url)
   end
 end

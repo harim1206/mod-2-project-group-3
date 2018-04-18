@@ -26,6 +26,10 @@ class SessionsController < ApplicationController
   end
 
   def show
+
+      @memories = Memory.all
+      @memories= current_user.family.memories
+
   end
 
   def create
