@@ -107,6 +107,15 @@ class SessionsController < ApplicationController
     render '/sessions/editselfaccount.html.erb'
   end
 
+  def validatesself
+    if current_user.authenticate(params[:password])
+      redirect_to edit_person_path(current_user)
+    else
+      flash[:errors] = ["You typed the wrong password"]
+      redirect_to edit_path
+    end
+  end
+
   def destroy
     session[:person_id] = nil
     redirect_to '/login'

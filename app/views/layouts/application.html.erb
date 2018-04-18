@@ -11,10 +11,10 @@
     <br>
   </head>
 
-  <div class="wrapper">
+  <div>
     <body>
       <% if current_user %>
-        <%= link_to "Home", '/' %>  | Signed in as <%= current_user.first_name %> | <%= link_to "My Account", edit_person_path(current_user) %> |<%= link_to "Logout", '/logout' %>
+        <%= link_to "Home", '/' %>  | Signed in as <%= current_user.first_name %> | <%= link_to "My Account", edit_path %> |<%= link_to "Logout", '/logout' %>
       <% else %>
         <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/presignup' %> | <%= link_to "Create Family", new_family_path %>
       <% end %>

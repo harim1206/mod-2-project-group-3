@@ -1,6 +1,5 @@
 class PeopleController < ApplicationController
   def index
-
     @people = current_user.family.people
   end
 
@@ -13,6 +12,7 @@ class PeopleController < ApplicationController
      @person.family_id = current_user.family.id
      @person.username = "#{@person.full_name} #{@person.family.family_name}"
      @person.password = "password"
+     byebug
      if @person.valid?
        @person.save
        redirect_to @person
@@ -23,30 +23,25 @@ class PeopleController < ApplicationController
    end
 
   def show
-    # byebug
     @person = Person.find(params[:id])
-
-
   end
 
   def edit
     @person = Person.find(params[:id])
-
   end
 
   def update
-    @person = Person.find(params[:id])
     byebug
-    if @person.authenticate(params[:person][:password])
-      @person.update(person_params)
-      redirect_to person_path(@person)
-    else
-      flash[:error] = @person.errors.full_messages
-      redirect_to edit_person_path(@person)
+    @person = Person.find(params[:id])
+    if @person != current_user
+      paramswithpassword = person_params.merge(password: "password")
+      if @person.update(paramswithpassword)
+        redirect_to person_path(@person)
+      else
+        flash[:errors] = @person.errors.full_messages
+        redirect_to edit_person_path(@person)
+      end
     end
-
-
-
   end
 
   def destroy
@@ -59,6 +54,6 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :bio, :dob, :dod, :image_url, :password)
+    params.require(:person).permit(:first_name, :last_name, :bio, :dob, :dod, :image_url)
   end
 end

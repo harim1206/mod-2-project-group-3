@@ -1,7 +1,7 @@
+
 <% @people.each do |person| %>
   <ul>
-    
-    <% if person.image_url == nil %>
+    <% if person.image_url == "" %>
     <li> <%=  link_to(person.first_name, person )%></li>
     <% else %>
     <li> <%= link_to image_tag(person.image_url), person %> </li>

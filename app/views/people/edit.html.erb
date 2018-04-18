@@ -1,11 +1,15 @@
+<% if flash[:errors] %>
+  <ul>
+    <br>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
 
-<h1> Edit Family Memeber </h1>
+<h1> Edit <%= @person.full_name %> </h1>
 
 <%= form_for(@person) do |f| %>
-
-  <%= f.label "Enter your password:" %></br>
-
-  <%= f.password_field :password %></br></br>
 
   <%= f.label :first_name %></br>
 
