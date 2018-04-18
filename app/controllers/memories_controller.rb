@@ -18,6 +18,7 @@ class MemoriesController < ApplicationController
   def create
     @memory = Memory.new(memory_params)
     @memory.family_id = current_user.family.id
+
     @memory.save
 
     #create a new tag for each selected person

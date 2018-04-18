@@ -24,6 +24,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
+
   end
 
   def edit
@@ -38,6 +39,8 @@ class PeopleController < ApplicationController
   end
 
   def destroy
+
+    #need if statement to not be able to delete a person who has an account
    @person = Person.destroy(params[:id])
    redirect_to people_path
   end
@@ -45,6 +48,10 @@ class PeopleController < ApplicationController
   private
 
   def person_params
+<<<<<<< HEAD
     params.require(:person).permit(:first_name, :last_name)
+=======
+    params.require(:person).permit(:first_name, :last_name, :bio, :dob, :dod, :image_url)
+>>>>>>> Kate
   end
 end
