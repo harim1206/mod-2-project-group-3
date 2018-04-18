@@ -1,0 +1,13 @@
+<br><br>
+<% if flash[:error] %>
+  <br>
+  <h3>
+    <%= flash[:error] %>
+  </h3>
+<% end %>
+
+
+<%= form_tag "/existingsignup" do %>
+  <%= collection_select :family, :family_id, @families, :id, :family_name_and_id, prompt: true%><br>
+  <%= submit_tag "Choose Family" %>
+<% end %>
