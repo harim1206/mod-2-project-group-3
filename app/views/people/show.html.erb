@@ -6,11 +6,14 @@
   <ul>
     <label>Biography: </label>  <%= @person.bio %></br></br>
     <label>Date of Birth: </label>  <%= @person.dob %></br></br>
-    <label>Date of Death: </label>  <%= @person.dod %></br></br>
+    <% if @person.dod %>
+      <label>Date of Death: </label>  <%= @person.dod %></br></br>
+    <% end  %>
   </ul>
 
   </br></br></br></br>
 
-<%= link_to("Edit Person", edit_person_path )%></br></br>
-
-<%= link_to("All People", people_path) %></br></br>
+<% if !@person.is_account %>
+  <%= link_to("Edit Person", edit_person_path )%></br></br>
+  <%= link_to("All People", people_path) %></br></br>
+<% end %>

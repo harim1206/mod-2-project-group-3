@@ -28,6 +28,10 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.find(params[:id])
+    if @person == current_user
+      @password = params[:password]
+    end
+    byebug
   end
 
   def update
@@ -35,13 +39,15 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     if @person != current_user
       paramswithpassword = person_params.merge(password: "password")
+    else
+      paramswithpassword = person_params.merge(password: params[:person][:password])
+    end
       if @person.update(paramswithpassword)
         redirect_to person_path(@person)
       else
         flash[:errors] = @person.errors.full_messages
         redirect_to edit_person_path(@person)
       end
-    end
   end
 
   def destroy

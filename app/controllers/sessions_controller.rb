@@ -109,7 +109,7 @@ class SessionsController < ApplicationController
 
   def validatesself
     if current_user.authenticate(params[:password])
-      redirect_to edit_person_path(current_user)
+      redirect_to edit_person_path(current_user, password: params[:password])
     else
       flash[:errors] = ["You typed the wrong password"]
       redirect_to edit_path

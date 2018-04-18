@@ -10,7 +10,7 @@
 <h1> Edit <%= @person.full_name %> </h1>
 
 <%= form_for(@person) do |f| %>
-
+  <%= f.hidden_field :password, value: @password %>
   <%= f.label :first_name %></br>
 
   <%= f.text_field :first_name %></br></br>
