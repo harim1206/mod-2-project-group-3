@@ -6,8 +6,10 @@
   </h3>
 <% end %>
 
+<h3> Choose A Family </h3>
 
 <%= form_tag "/existingsignup" do %>
   <%= collection_select :family, :family_id, @families, :id, :family_name_and_id, prompt: true%><br>
+  Password: <%= password_field_tag :family_password %> <br>
   <%= submit_tag "Choose Family" %>
 <% end %>

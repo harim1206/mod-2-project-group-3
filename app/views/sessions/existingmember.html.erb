@@ -1,3 +1,14 @@
 <br><br>
+<% if flash[:error] %>
+  <br>
+  <h3>
+    <%= flash[:error] %>
+  </h3>
+<% end %>
 
-EXISTING MEMBER
+<h3> Choose A Member </h3>
+
+<%= form_tag "/editaccount" do %>
+  <%= collection_select :person, :person_id, @people, :id, :full_name, prompt: true%><br>
+  <%= submit_tag "Choose Member" %>
+<% end %>

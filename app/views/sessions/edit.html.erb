@@ -1,0 +1,7 @@
+<%= form_for @person, url:'updateaccount' do |f| %>
+<%= f.hidden_field :id, value: @person.id %>
+Username: <%= f.text_field :username %><br><br>
+Password: <%= f.password_field :password %><br><br>
+Password Confirmation <%= f.password_field :password_confirmation %> <br> <br>
+<%= f.submit %>
+<% end %>
