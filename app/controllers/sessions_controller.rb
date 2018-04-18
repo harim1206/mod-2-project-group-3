@@ -36,10 +36,11 @@ class SessionsController < ApplicationController
   end
 
   def choosemember
-    if params[:family_id]
-      @family = Family.find(params[:family_id])
+    if params[:family][:family_id] != ""
+      @family = Family.find(params[:family][:family_id])
+      render "sessions/existingmember.html.erb"
     else
-      flash[:errors] = "You need to choose a family!"
+      flash[:error] = "You need to choose a family!"
       redirect_to choosefamily_path
     end
   end
