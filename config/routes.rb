@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new', as: :login
   post '/login' => 'sessions#create'
-  
+
+  get '/edit' => 'sessions#edit', as: :edit
+
   get '/logout' => 'sessions#destroy'
 
   resources :memories

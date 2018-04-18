@@ -23,6 +23,7 @@ class PeopleController < ApplicationController
    end
 
   def show
+    # byebug
     @person = Person.find(params[:id])
 
   end
@@ -33,7 +34,11 @@ class PeopleController < ApplicationController
   end
 
   def update
-    @person = Person.update(person_params)
+    @person = Person.find(params[:id])
+    # byebug
+    @person.update(person_params)
+
+
     redirect_to person_path(@person)
 
   end

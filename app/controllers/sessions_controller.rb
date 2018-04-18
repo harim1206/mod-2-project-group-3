@@ -82,6 +82,13 @@ class SessionsController < ApplicationController
     end
   end
 
+  def edit
+    @current_user = Person.find(session[:person_id])
+
+
+    # byebug
+  end
+
   def destroy
     session[:person_id] = nil
     redirect_to '/login'
