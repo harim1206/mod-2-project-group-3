@@ -41,7 +41,12 @@ class SessionsController < ApplicationController
       @people = family.people.select do |person|
         !person.is_account
       end
-      render "sessions/existingmember.html.erb"
+      if family.authenticate(params[:family_password])
+        render "sessions/existingmember.html.erb"
+      else
+        flash[:error] = "You typed an incorrect family password!"
+        redirect_to choosefamily_path
+      end
     else
       flash[:error] = "You need to choose a family!"
       redirect_to choosefamily_path
