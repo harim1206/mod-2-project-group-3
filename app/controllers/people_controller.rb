@@ -26,6 +26,7 @@ class PeopleController < ApplicationController
     # byebug
     @person = Person.find(params[:id])
 
+
   end
 
   def edit
@@ -35,11 +36,16 @@ class PeopleController < ApplicationController
 
   def update
     @person = Person.find(params[:id])
-    # byebug
-    @person.update(person_params)
+    byebug
+    if @person.authenticate(params[:person][:password])
+      @person.update(person_params)
+      redirect_to person_path(@person)
+    else
+      flash[:error] = @person.errors.full_messages
+      redirect_to edit_person_path(@person)
+    end
 
 
-    redirect_to person_path(@person)
 
   end
 
@@ -53,6 +59,6 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :bio, :dob, :dod, :image_url)
+    params.require(:person).permit(:first_name, :last_name, :bio, :dob, :dod, :image_url, :password)
   end
 end
