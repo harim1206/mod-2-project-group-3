@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    # byebug
     @current_user ||= Person.find(session[:person_id]) if session[:person_id]
 
   end

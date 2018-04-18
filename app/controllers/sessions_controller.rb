@@ -60,23 +60,18 @@ class SessionsController < ApplicationController
   end
 
   def show
-
-      @memories = Memory.all
-      @memories= current_user.family.memories
-
-      @random = []
-      count = 0
+    @memories= current_user.family.memories
+    @random = []
+    count = 0
+    if @memories.count > 3
       while count < 3 do
        random_memory = @memories.sample
        if !@random.include?(random_memory)
          @random << random_memory
          count += 1
        end
-      end
-
-
-      # byebug
-
+     end
+   end
   end
 
   def edit
@@ -107,11 +102,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  def edit
+  def editselfaccount
     @current_user = Person.find(session[:person_id])
-
-
-    # byebug
+    render '/sessions/editselfaccount.html.erb'
   end
 
   def destroy

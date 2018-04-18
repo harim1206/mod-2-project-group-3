@@ -1,17 +1,10 @@
-
-
-<% @random.each do |memory| %>
-  <%if memory.image_url %>
-    <p><%= link_to image_tag(memory.image_url), memory %></p>
+<% if @random != [] %>
+  <% @random.each do |memory| %>
+    <%if memory.image_url %>
+      <p><%= link_to image_tag(memory.image_url), memory %></p>
+    <% end %>
   <% end %>
 <% end %>
-
-
-
-
-
-
-
 
 <br/><br/><br/><br/>
 <%= link_to "View All Family Members", people_path %><br/>

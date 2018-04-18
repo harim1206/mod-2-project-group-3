@@ -9,13 +9,14 @@ Rails.application.routes.draw do
   post "/editaccount" => 'sessions#edit', as: :editaccount
   patch '/updateaccount' => 'sessions#update'
 
+  get '/edit' => 'sessions#editselfaccount', as: :edit
+
   get '/signup' => 'sessions#newaccount', as: :signup
   post '/signup' => 'sessions#createaccount'
 
   get '/login' => 'sessions#new', as: :login
   post '/login' => 'sessions#create'
 
-  get '/edit' => 'sessions#edit', as: :edit
 
   get '/logout' => 'sessions#destroy'
 
