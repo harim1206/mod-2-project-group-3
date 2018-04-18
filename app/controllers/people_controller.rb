@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
   def create
      @person = Person.new(person_params)
      @person.family_id = current_user.family.id
-     @person.username = "#{@person.first_name}#{@person.last_name}#{@person.family.family_name}"
+     @person.username = "#{@person.full_name} #{@person.family.family_name}"
      @person.password = "password"
      if @person.valid?
        @person.save
