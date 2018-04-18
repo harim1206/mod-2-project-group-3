@@ -1,3 +1,10 @@
 <h1>Edit memory</h1>
 
 <%= render 'form' %>
+
+
+<br/>
+<br/>
+<%= form_tag memory_path(@memory), method: 'delete' do %>
+ <%= submit_tag('Delete Memory') %>
+<% end %>

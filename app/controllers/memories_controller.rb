@@ -39,6 +39,8 @@ class MemoriesController < ApplicationController
 
   def edit
     @memory = Memory.find(params[:id])
+    @people = Person.all
+
   end
 
 
@@ -48,6 +50,12 @@ class MemoriesController < ApplicationController
     @memory.update(memory_params)
 
     redirect_to @memory
+  end
+
+  def destroy
+    # byebug
+    Memory.destroy(params[:id])
+    redirect_to memories_path
   end
 
 
