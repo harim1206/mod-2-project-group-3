@@ -48,10 +48,6 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-<<<<<<< HEAD
-    params.require(:person).permit(:first_name, :last_name)
-=======
     params.require(:person).permit(:first_name, :last_name, :bio, :dob, :dod, :image_url)
->>>>>>> Kate
   end
 end

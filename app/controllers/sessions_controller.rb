@@ -56,6 +56,19 @@ class SessionsController < ApplicationController
       @memories = Memory.all
       @memories= current_user.family.memories
 
+      @random = []
+      count = 0
+      while count < 3 do
+       random_memory = @memories.sample
+       if !@random.include?(random_memory)
+         @random << random_memory
+         count += 1
+       end
+      end
+
+
+      # byebug
+
   end
 
   def create

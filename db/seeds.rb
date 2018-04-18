@@ -16,11 +16,11 @@ Person.create(first_name: "Celeste", last_name: "Gerard", username: "Celeste", p
 Person.create(first_name: "Kate", last_name: "Schlunz", username: "Kate", password: "1", family_id:1)
 Person.create(first_name: "Eric", last_name: "Kim", username: "Eric", password: "1", family_id:1)
 
-Memory.create(description: Faker::Hipster.word, family_id: 1)
-Memory.create(description: Faker::Hipster.word, family_id: 1)
-Memory.create(description: Faker::Hipster.word, family_id: 1)
-Memory.create(description: Faker::Hipster.word, family_id: 1)
-Memory.create(description: Faker::Hipster.word, family_id: 1)
+Memory.create(description: Faker::Hipster.word, family_id: 1, image_url: "https://awkwardfamilyphotos.com/wp-content/uploads/cache/2014/01/1014719_10152120548434004_355322882_o/4033099205.jpg")
+Memory.create(description: Faker::Hipster.word, family_id: 1, image_url: "https://accelerator-origin.kkomando.com/wp-content/uploads/2014/03/Awkward-Family-Photo.jpg")
+Memory.create(description: Faker::Hipster.word, family_id: 1, image_url: "https://leslieannetarabella.com/wp-content/uploads/2018/03/awkward-family-portrait-1.jpg")
+Memory.create(description: Faker::Hipster.word, family_id: 1, image_url: "https://sadanduseless.b-cdn.net/wp-content/uploads/2014/04/weird1.jpg")
+Memory.create(description: Faker::Hipster.word, family_id: 1, image_url: "https://i.pinimg.com/originals/25/02/c2/2502c2f82aa451ca0669965f3cd83906.jpg")
 
 Memory.create(description: Faker::Hipster.word, family_id: 2)
 Memory.create(description: Faker::Hipster.word, family_id: 3)
