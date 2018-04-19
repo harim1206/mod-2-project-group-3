@@ -1,38 +1,97 @@
+
 <% if !current_user.family.people.include?(@person) %>
   <%= render 'noaccess.html.erb' %>
 <% else %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> <%=  @person.first_name %> <%= @person.last_name %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container-fluid">
   <h2> <%=  @person.first_name %> <%= @person.last_name %></h2>
-
-  <% if @person.image.url != "/images/original/missing.png" %>
-    <%= image_tag @person.image.url(:medium) %> <br/>
-  <% elsif @person.image_url && @person.image_url != "" %>
-    <%= image_tag(@person.image_url)%>
+  <center><img src=" <%= @person.image.url (:large)%> " alt="" class="img-rounded"></center>
+  <p><ul>
+    <center>
+      <div class="bio">
+    <label>Biography: </label>  <%= @person.bio %></br></br>
+    <label>Date of Birth: </label>  <%= @person.dob %></br></br>
+    <% if @person.dod %>
+      <label>Date of Death: </label>  <%= @person.dod %></br></br>
+      <label>Date of Death: </label>  <%= @person.dod %></br></br>
+    <% end  %>
+  </div>
+    <% if !@person.is_account %>
+  <button type="button" class="btn btn-link"><%= link_to("Edit Person", edit_person_path )%></button>
+  <button type="button" class="btn btn-link"><%= link_to("All Family Members", people_path) %></button>
   <% end %>
 
-    <ul>
-      <label>Biography: </label>  <%= @person.bio %></br></br>
-      <label>Date of Birth: </label>  <%= @person.dob %></br></br>
-      <% if @person.dod %>
-        <label>Date of Death: </label>  <%= @person.dod %></br></br>
-      <% end  %>
-    </ul>
+  </center>
+  </ul></p>
+</div>
 
-    <% if @person.memories.any? %>
-      <h1>Memories</h1>
-    <ul>
-      <% @person.memories.each do |memory| %>
-        <% if memory.image.url != "/app/assets/images/missing_memory.jpg" %>
-          <li><%= link_to image_tag(memory.image.url(:thumb)), memory %></li>
-          <% elsif memory.image_url && memory.image_url.strip != "" %>
-            <%= link_to image_tag(memory.image_url), memory %>
-        <% end %>
 
-      <% end %>
-    <% end %>
-  </ul>
-    </br></br></br></br>
-  <% if !@person.is_account %>
-    <%= link_to("Edit Person", edit_person_path )%></br></br>
-    <%= link_to("All People", people_path) %></br></br>
-  <% end %>
+
+
+<% if @person.memories.any? %>
+  <h2>Memories</h2>
+  <% @person.memories.each_with_index do |memory, index| %>
+
+
+<% if index % 3 == 0 %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="img-fluid" alt="Responsive image">
+        <img "<%=image_tag(memory.image.url(:medium))%>
+        <div class="captionks">
+          <p> <%= link_to memory.title, memory %></p>
+        </div>
+
+    </div>
+  </div>
+
+
+  <% elsif index % 3 == 1%>
+
+  <div class="col-md-4">
+    <div class="img-fluid" alt="Responsive image">
+      <img <%= link_to image_tag(memory.image.url(:medium)), memory %>
+        <div class="captionks">
+          <p> <%= link_to memory.title, memory %></p>
+        </div>
+
+
+  </div>
+</div>
+  <% else %>
+
+
+  <div class="col-md-4">
+    <div class="img-fluid" alt="Responsive image">
+      <img <%= link_to image_tag(memory.image.url(:medium)), memory %>
+        <div class="captionks">
+          <p> <%= link_to memory.title, memory %></p>
+        </div>
+
+    </div>
+  </div>
+</div>
+<% end %>
+<% end %>
+<% end %>
+</ul>
+</body>
+
+
+
+</html>
+
 <% end %>

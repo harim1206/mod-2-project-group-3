@@ -10,11 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+<<<<<<< HEAD
  *= require_tree .
  *= require_self
  */
  @import url('https://fonts.googleapis.com/css?family=Cardo');
 
+
+
+
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
 
  * {
    font-family: Cardo;
@@ -140,6 +146,41 @@
 
 
 
+  // people/show
+  .row {
+      padding: 35px 70px 50px 90px;
+  }
+
+  .bio{
+
+    font-size: 14pt;
+  }
+
+
+ .captionks {
+           float:left;
+           width: 210px;
+           text-align: center;
+           font-size: 13.5pt;
+           padding: 10px 10px 20px 10px;
+ }
+
+ // memories/show
+
+ .descriptionks{
+             padding: 40px 70px 70px 100px;
+             font-family: Cardo;
+             font-size: 14pt;
+           }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -188,32 +229,41 @@
 
 
 
+// people/new
+
+
+.formpeople{
+  padding-left: 600px;
+  padding-right: 100px;
+  align-content: right;
+}
+
+.bodypeople{
+  background: url(http://earthdeco.us/wp-content/uploads/2018/04/roots-clipart-unique-20-best-free-use-family-tree-low-zero-cost-images-on.jpg) no-repeat;
+}
 
 
 
+//memories/new
 
+.bodymemories{
+  background: url(https://image.freepik.com/free-photo/old-vintage-camera-on-old-books-on-wooden-background-old-vintage-holiday-concept_1220-1115.jpg) no-repeat;
 
+}
 
+.formmemories{
+padding-left: 800px;
+padding-right: 100px;
+align-content: right;
+}
 
+// /family/new
+.formfamily{
+  padding-left: 600px;
+  padding-right: 100px;
+  align-content: right;
+}
 
-
-
-//
-//
-//
-//
-//
-
-
-
-
-
-
-
-
-
-
-
-
- @import "bootstrap-sprockets";
- @import "bootstrap";
+.bodyfamily{
+  background: url(https://dspncdn.com/a1/media/692x/08/51/be/0851bea82034a230c1568aab3bdccd64.jpg) no-repeat;
+}
