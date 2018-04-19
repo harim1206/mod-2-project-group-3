@@ -1,5 +1,5 @@
 class FamiliesController < ApplicationController
-before_action :authorize, only: [:show]
+before_action :authorize, only: [:show, :edit, :update]
 
   def new
     @family = Family.new
