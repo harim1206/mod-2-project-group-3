@@ -1,24 +1,52 @@
 <% if !current_user.family.memories.include?(@memory) %>
   <%= render 'noaccess' %>
 <% else %>
-  <h2><%= @memory.title %></h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> <%= @memory.title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
-  <img src= "<%= @memory.image_url %>"/><br/>
-  <% if @memory.image.url != "/images/original/missing.png" %>
-    <%= image_tag @memory.image.url(:medium) %><br/>
-  <% end %>
+  <body>
 
-  Description: <br/>
-  <%=  @memory.description %> <br/><br/>
+  <div class="container-fluid">
+    <h2> <%= @memory.title %> </h2>
+    <% if @memory.image.url != "/images/original/missing.png" %>
+      <center><img src= "<%= @memory.image.url(:large) %> " alt="" class="img-rounded"></center>
+      <p><ul>
+        <center>
+          <div class="descriptionks">
 
-  Tagged People: <br/>
-  <% @tagged_people.each do |p| %>
-    <ul>
-      <li><%= link_to p.full_name, p %></li>
-    </ul>
-  <% end %>
-  <br/>
 
-  <%= link_to("Edit Memory", edit_memory_path )%><br/>
-  <%= link_to("All Memories", memories_path) %><br/>
+            <label>Description: </label>  <%= @memory.description %></br></br>
+          </div>
+          Tagged People: <br/>
+        <% @tagged_people.each do |p| %>
+          <ul>
+            <li><%= link_to p.full_name, p %></li>
+          </ul>
+        <% end %>
+      <% end %>
+      <br/>
+      <%= link_to("Edit Memory", edit_memory_path )%> |
+      <%= link_to("All Memories", memories_path) %>
+      </center>
+    </ul></p>
+  </div>
+
+
+</body>
+
+
+
+
+
+
+
+
 <% end %>

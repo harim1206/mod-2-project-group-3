@@ -6,14 +6,19 @@
     <% end %>
   </ul>
 <% end %><br/>
+<body>
+  <div class="bodymemories">
+    <div class="formmemories">
+<%= bootstrap_form_for @memory, html: { multipart: true } do |f| %>
 
-<%= form_for @memory, html: { multipart: true } do |f| %>
-  <%= f.label :title %><br/>
   <%= f.text_field :title %><br/>
-  <%= f.label :description %><br/>
+
   <%= f.text_field :description %><br/>
-  <%= f.label :image %><br/>
+
   <%= f.file_field :image %><br/>
   <%= f.collection_check_boxes(:person_ids, @people, :id, :full_name) %><br/>
   <%= f.submit %>
 <% end %>
+
+</div>
+</div>

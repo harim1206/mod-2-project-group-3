@@ -8,15 +8,18 @@
 <% end %><br/>
 
 <h2>New Family</h2>
+<body>
+  <div class="bodyfamily">
+    <div class="formfamily">
+<%= bootstrap_form_for @family do |f| %>
 
-<%= form_for @family do |f| %>
-  <%= f.label :family_name %><br/>
   <%= f.text_field :family_name %><br/>
-  <%= f.label :family_description %><br/>
-  <%= f.text_area :family_info, placeholder: "Write A Little About Your Family" %><br/>
-  <%= f.label :family_password %><br/>
-  <%= f.password_field :password %><br/>
-  <%= f.label :password_confirmation %> <br/>
+
+  <%= f.text_area :family_info, label: "Family Description", placeholder: "Write A Little About Your Family" %><br/>
+
+  <%= f.password_field :password, label: "Family Password" %><br/>
+
   <%= f.password_field :password_confirmation %><br/>
   <%= f.submit "Submit" %>
 <% end %>
+</body>
