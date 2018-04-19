@@ -2,28 +2,87 @@
 <% if !current_user.family.people.include?(@person) %>
   <%= render 'noaccess' %>
 <% else %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> <%=  @person.first_name %> <%= @person.last_name %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
   <h2> <%=  @person.first_name %> <%= @person.last_name %></h2>
-  <img src=" <%= @person.image_url %> " alt="">
+  <center><img src=" <%= @person.image_url %> " alt="" class="img-rounded"></center>
+  <p><ul>
+    <center>
+    <label>Biography: </label>  <%= @person.bio %></br></br>
+    <label>Date of Birth: </label>  <%= @person.dob %></br></br>
+    <% if @person.dod %>
+      <label>Date of Death: </label>  <%= @person.dod %></br></br>
+    <% end  %>
+    <label>Date of Death: </label>  <%= @person.dod %></br></br>
+  </center>
+  </ul></p>
+</div>
 
-    <ul>
-      <label>Biography: </label>  <%= @person.bio %></br></br>
-      <label>Date of Birth: </label>  <%= @person.dob %></br></br>
-      <% if @person.dod %>
-        <label>Date of Death: </label>  <%= @person.dod %></br></br>
-      <% end  %>
-    </ul>
 
-    <% if @person.memories.any? %>
-      <h1>Memories</h1>
-    <ul>
-      <% @person.memories.each do |memory| %>
-        <li><%= link_to memory.title, memory %></li>
-      <% end %>
-    <% end %>
-  </ul>
-    </br></br></br></br>
+
+
+<% if @person.memories.any? %>
+  <h1>Memories</h1>
+  <% @person.memories.each_with_index do |memory, index| %>
+
+<% if index % 3 == 0 %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+
+        <img src="<%= link_to image_tag(memory.image_url), memory %> >
+        <div class="caption">
+          <p> <%= memory.title %></p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <% elsif index % 3 == 1%>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <img src=<%= link_to image_tag(memory.image_url), memory %>>
+        <div class="caption">
+          <p> <%= memory.title %></p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <% else %>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <img src=<%= link_to image_tag(memory.image_url), memory %>>
+        <div class="caption">
+          <p> <%= memory.title %></p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<% end %>
+<% end %>
+<% end %>
+</ul>
+</body>
+
+<footer>
   <% if !@person.is_account %>
-    <%= link_to("Edit Person", edit_person_path )%></br></br>
-    <%= link_to("All People", people_path) %></br></br>
-  <% end %>
+<button type="button" class="btn btn-link"><%= link_to("Edit Person", edit_person_path )%></button>
+<button type="button" class="btn btn-link"><%= link_to("All Family Members", people_path) %></button>
+<% end %>
+</footer>
+</html>
+
 <% end %>
