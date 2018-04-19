@@ -7,6 +7,30 @@ end
 
 gem 'faker'
 
+gem 'bootstrap-sass'
+gem 'bootstrap'
+gem 'bootstrap_form',
+ git: "https://github.com/bootstrap-ruby/bootstrap_form.git",
+ branch: 'master'
+
+
+gem 'jquery-rails'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record

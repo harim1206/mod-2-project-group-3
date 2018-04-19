@@ -21,7 +21,7 @@
       <h1>Memories</h1>
     <ul>
       <% @person.memories.each do |memory| %>
-        <% if memory.image.url != "/images/original/missing.png" %>
+        <% if memory.image.url != "/app/assets/images/missing_memory.jpg" %>
           <li><%= link_to image_tag(memory.image.url(:thumb)), memory %></li>
           <% elsif memory.image_url && memory.image_url.strip != "" %>
             <%= link_to image_tag(memory.image_url), memory %>

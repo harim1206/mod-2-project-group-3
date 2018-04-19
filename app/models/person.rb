@@ -1,5 +1,6 @@
 class Person < ApplicationRecord
-  has_attached_file :image, styles: {large: "600x600>", medium: "300x300>", thumb: "150x150#" }
+  has_attached_file :image, styles: {large: "600x600>", medium: "300x300>", thumb: "150x150#" },
+    :default_url => "/app/assets/images/missing_image.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   belongs_to :family
   has_many :tags, dependent: :delete_all

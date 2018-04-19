@@ -16,6 +16,8 @@
   <%= f.text_field :last_name %><br/>
   <%= f.label :date_of_birth %><br/>
   <%= f.date_field :dob %></br>
+  <%= f.label :bio %> <br/>
+  <%= f.text_area :bio %> <br/>
   <%= f.label :family %><br/>
   <%= f.collection_select :family_id, @families, :id, :family_name_and_id, prompt: true%><br/>
   <%= f.label :family_password %><br/>
