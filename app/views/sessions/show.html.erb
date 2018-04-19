@@ -9,6 +9,8 @@
   <% @memories.each do |memory| %>
     <% if memory.image.url != "/images/original/missing.png"%>
       <p><%= link_to image_tag(memory.image.url(:medium)), memory %></p>
+    <% elsif memory.image_url && memory.image_url.strip != "" %>
+      <%= link_to image_tag(memory.image_url), memory %>
     <% end %>
   <% end %>
 <% end %>

@@ -2,10 +2,11 @@
   <%= render 'noaccess.html.erb' %>
 <% else %>
   <h2> <%=  @person.first_name %> <%= @person.last_name %></h2>
-  <img src=" <%= @person.image_url %> " alt=""> <br/>
 
   <% if @person.image.url != "/images/original/missing.png" %>
     <%= image_tag @person.image.url(:medium) %> <br/>
+  <% elsif @person.image_url && @person.image_url != "" %>
+    <%= image_tag(@person.image_url)%>
   <% end %>
 
     <ul>
@@ -22,6 +23,8 @@
       <% @person.memories.each do |memory| %>
         <% if memory.image.url != "/images/original/missing.png" %>
           <li><%= link_to image_tag(memory.image.url(:thumb)), memory %></li>
+          <% elsif memory.image_url && memory.image_url.strip != "" %>
+            <%= link_to image_tag(memory.image_url), memory %>
         <% end %>
 
       <% end %>
