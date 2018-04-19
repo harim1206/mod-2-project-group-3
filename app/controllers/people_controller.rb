@@ -25,6 +25,8 @@ class PeopleController < ApplicationController
   def show
     # byebug
     @person = Person.find(params[:id])
+    @memories = Memory.all
+    @memories= current_user.family.memories
 
   end
 
