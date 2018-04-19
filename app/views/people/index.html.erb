@@ -1,12 +1,13 @@
+<br/>
+<br/>
+<h2> The <%= @family.family_name %> Family Tree </h2>
+<h3>  <%= @family.family_info %> </h3>
+
 <% @people.each do |person| %>
   <ul>
-    <% if person.image_url == "" %>
-    <li> <%=  link_to(person.first_name, person )%></li>
-    <% else %>
-    <li> <%= link_to image_tag(person.image_url), person %> </li>
-    <% end %>
+    <li> <%=  link_to person.first_name, person%></li>
   </ul>
 
 <% end %>
-
-<%= link_to("Home", '/') %>
+<br/>
+<%= link_to "Edit Family", edit_family_path(current_user.family)  %>

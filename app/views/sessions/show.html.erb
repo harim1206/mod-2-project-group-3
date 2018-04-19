@@ -1,17 +1,14 @@
-<% if @random != [] %>
-  <% @random.each do |memory| %>
-    <%if memory.image_url %>
+<br/><br/>
+<%= link_to "View All Family Members", people_path %><br/>
+<%= link_to "Add New Family Member", new_person_path %><br/>
+<br/>
+<%= link_to "Add New Memory", new_memory_path %><br/>
+<%= link_to "View All Memories", memories_path %><br/>
+
+<% if @memories %>
+  <% @memories.each do |memory| %>
+    <%if memory.image_url.strip != "" %>
       <p><%= link_to image_tag(memory.image_url), memory %></p>
     <% end %>
   <% end %>
 <% end %>
-
-<br/><br/><br/><br/>
-<%= link_to "View All Family Members", people_path %><br/>
-<%= link_to "Add New Family Member", new_person_path %><br/>
-
-
-<br/><br/><br/><br/>
-
-<%= link_to "Add New Memory", new_memory_path %><br/>
-<%= link_to "View All Memories", memories_path %><br/>

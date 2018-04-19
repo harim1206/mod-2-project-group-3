@@ -1,16 +1,18 @@
-<% if flash[:error] %>
-  <br>
-  <h2>
-    <%= flash[:error] %>
-  </h2>
-<% end %>
+<% if flash[:errors] %>
+  <ul>
+    <br/>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %><br/>
 
 <h2>Login</h2>
 
 <%= form_tag '/login' do %>
-
-  Username: <%= text_field_tag :username %> <br><br>
-  Password: <%= password_field_tag :password %><br><br>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %> <br/><br/>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %><br/><br/>
   <%= submit_tag "Submit" %>
-
 <% end %>

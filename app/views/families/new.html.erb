@@ -1,18 +1,22 @@
 <% if flash[:errors] %>
   <ul>
+    <br/>
     <% flash[:errors].each do |error| %>
       <li><%= error %></li>
     <% end %>
   </ul>
-<% end %>
+<% end %><br/>
 
 <h2>New Family</h2>
 
 <%= form_for @family do |f| %>
-
-  Family Name: <%= f.text_field :family_name %><br><br>
-  Family Description: <%= f.text_area :family_info, placeholder: "Write A Little About Your Family" %><br><br>
-  Family Password: <%= f.password_field :password %><br><br>
-  Password Confirmation: <%= f.password_field :password_confirmation %><br><br>
+  <%= f.label :family_name %><br/>
+  <%= f.text_field :family_name %><br/>
+  <%= f.label :family_description %><br/>
+  <%= f.text_area :family_info, placeholder: "Write A Little About Your Family" %><br/>
+  <%= f.label :family_password %><br/>
+  <%= f.password_field :password %><br/>
+  <%= f.label :password_confirmation %> <br/>
+  <%= f.password_field :password_confirmation %><br/>
   <%= f.submit "Submit" %>
 <% end %>

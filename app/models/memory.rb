@@ -3,6 +3,8 @@ class Memory < ApplicationRecord
   has_many :tags
   has_many :people, through: :tags
 
+  validates :title, presence: true
+
   #create a new tag instance
   def create_tag(person_id)
     Tag.create(person_id: person_id, memory_id: self.id)
@@ -12,7 +14,6 @@ class Memory < ApplicationRecord
   def get_tagged_people
     tagged_people = []
     Tag.where(memory_id: self.id).each do |tag|
-      # byebug
       tagged_people << Person.find(tag.person_id)
     end
 

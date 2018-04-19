@@ -1,3 +1,12 @@
+<% if flash[:errors] %>
+  <ul>
+    <br/>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %><br/>
+
 <%= form_for(@memory) do |f| %>
   <%= f.label :title %><br/>
   <%= f.text_field :title %><br/>
@@ -5,8 +14,6 @@
   <%= f.text_field :description %><br/>
   <%= f.label :image_url %><br/>
   <%= f.text_field :image_url %><br/>
-
-  <%= f.collection_check_boxes(:person_ids, @people, :id, :full_name) %>
-
+  <%= f.collection_check_boxes(:person_ids, @people, :id, :full_name) %><br/>
   <%= f.submit %>
 <% end %>

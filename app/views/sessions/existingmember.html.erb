@@ -1,14 +1,16 @@
-<br><br>
-<% if flash[:error] %>
-  <br>
-  <h3>
-    <%= flash[:error] %>
-  </h3>
-<% end %>
+<% if flash[:errors] %>
+  <ul>
+    <br/>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %><br/>
 
-<h3> Choose A Member </h3>
-
+<h2> Choose A Member </h2>
 <%= form_tag "/editaccount" do %>
-  <%= collection_select :person, :person_id, @people, :id, :full_name, prompt: true%><br>
+  <%= collection_select :person, :person_id, @people, :id, :full_name, prompt: true%><br/>
   <%= submit_tag "Choose Member" %>
 <% end %>
+<br/>
+<%= link_to "I don't see my name!", signup_path %>

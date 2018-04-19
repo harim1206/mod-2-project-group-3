@@ -1,10 +1,10 @@
-<h1>Edit memory</h1>
+<% if !current_user.family.memories.include?(@memory) %>
+  <%= render 'noaccess' %>
+<% else %>
+  <h2>Edit Memory</h2><br/>
 
-<%= render 'form' %>
-
-
-<br/>
-<br/>
-<%= form_tag memory_path(@memory), method: 'delete' do %>
- <%= submit_tag('Delete Memory') %>
+  <%= render 'form' %><br/>
+  <%= form_tag memory_path(@memory), method: 'delete' do %>
+   <%= submit_tag 'Delete Memory'%>
+  <% end %>
 <% end %>

@@ -1,19 +1,28 @@
-<h1> <%=  @person.first_name %> <%= @person.last_name %></h1>
+<% if !current_user.family.people.include?(@person) %>
+  <%= render 'noaccess' %>
+<% else %>
+  <h2> <%=  @person.first_name %> <%= @person.last_name %></h2>
+  <img src=" <%= @person.image_url %> " alt="">
 
-<img src=" <%= @person.image_url %> " alt="">
+    <ul>
+      <label>Biography: </label>  <%= @person.bio %></br></br>
+      <label>Date of Birth: </label>  <%= @person.dob %></br></br>
+      <% if @person.dod %>
+        <label>Date of Death: </label>  <%= @person.dod %></br></br>
+      <% end  %>
+    </ul>
 
-
-  <ul>
-    <label>Biography: </label>  <%= @person.bio %></br></br>
-    <label>Date of Birth: </label>  <%= @person.dob %></br></br>
-    <% if @person.dod %>
-      <label>Date of Death: </label>  <%= @person.dod %></br></br>
-    <% end  %>
+    <% if @person.memories.any? %>
+      <h1>Memories</h1>
+    <ul>
+      <% @person.memories.each do |memory| %>
+        <li><%= link_to memory.title, memory %></li>
+      <% end %>
+    <% end %>
   </ul>
-
-  </br></br></br></br>
-
-<% if !@person.is_account %>
-  <%= link_to("Edit Person", edit_person_path )%></br></br>
-  <%= link_to("All People", people_path) %></br></br>
+    </br></br></br></br>
+  <% if !@person.is_account %>
+    <%= link_to("Edit Person", edit_person_path )%></br></br>
+    <%= link_to("All People", people_path) %></br></br>
+  <% end %>
 <% end %>

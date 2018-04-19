@@ -1,9 +1,7 @@
-<h1> <%= @family.family_name %> Memories </h1>
-
+<h2> <%= @family.family_name %> Memories </h2>
 
 <% @memories.each do |memory| %>
   <ul>
-    <li> <%=  link_to(memory.title, memory )%></li>
+    <li> <%= link_to(memory.title, memory) %></li>
   </ul>
-
 <% end %>
