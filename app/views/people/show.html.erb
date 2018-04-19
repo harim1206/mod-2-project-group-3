@@ -1,6 +1,6 @@
 
 <% if !current_user.family.people.include?(@person) %>
-  <%= render 'noaccess' %>
+  <%= render 'noaccess.html.erb' %>
 <% else %>
 
 <!DOCTYPE html>
@@ -17,67 +17,32 @@
 
 <div class="container-fluid">
   <h2> <%=  @person.first_name %> <%= @person.last_name %></h2>
-  <center><img src=" <%= @person.image_url %> " alt="" class="img-rounded"></center>
-  <p><ul>
-    <center>
-    <label>Biography: </label>  <%= @person.bio %></br></br>
-    <label>Date of Birth: </label>  <%= @person.dob %></br></br>
-    <% if @person.dod %>
-      <label>Date of Death: </label>  <%= @person.dod %></br></br>
-    <% end  %>
-    <label>Date of Death: </label>  <%= @person.dod %></br></br>
-  </center>
-  </ul></p>
-</div>
+  <img src=" <%= @person.image_url %> " alt=""> <br/>
 
+  <% if @person.image.url != "/images/original/missing.png" %>
+    <%= image_tag @person.image.url(:medium) %> <br/>
+  <% end %>
 
+    <ul>
+      <label>Biography: </label>  <%= @person.bio %></br></br>
+      <label>Date of Birth: </label>  <%= @person.dob %></br></br>
+      <% if @person.dod %>
+        <label>Date of Death: </label>  <%= @person.dod %></br></br>
+      <% end  %>
+    </ul>
 
+    <% if @person.memories.any? %>
+      <h1>Memories</h1>
+    <ul>
+      <% @person.memories.each do |memory| %>
+        <% if memory.image.url != "/images/original/missing.png" %>
+          <li><%= link_to image_tag(memory.image.url(:thumb)), memory %></li>
+        <% end %>
 
-<% if @person.memories.any? %>
-  <h1>Memories</h1>
-  <% @person.memories.each_with_index do |memory, index| %>
-
-<% if index % 3 == 0 %>
-<div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
-
-        <img src="<%= link_to image_tag(memory.image_url), memory %> >
-        <div class="caption">
-          <p> <%= memory.title %></p>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <% elsif index % 3 == 1%>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <img src=<%= link_to image_tag(memory.image_url), memory %>>
-        <div class="caption">
-          <p> <%= memory.title %></p>
-        </div>
-      </a>
-    </div>
-  </div>
-  <% else %>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      <img src=<%= link_to image_tag(memory.image_url), memory %>>
-        <div class="caption">
-          <p> <%= memory.title %></p>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
-<% end %>
-<% end %>
-<% end %>
-</ul>
-</body>
-
-<footer>
+      <% end %>
+    <% end %>
+  </ul>
+    </br></br></br></br>
   <% if !@person.is_account %>
 <button type="button" class="btn btn-link"><%= link_to("Edit Person", edit_person_path )%></button>
 <button type="button" class="btn btn-link"><%= link_to("All Family Members", people_path) %></button>

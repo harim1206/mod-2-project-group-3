@@ -27,13 +27,22 @@ class MemoriesController < ApplicationController
   end
 
   def show
-    @memory = Memory.find(params[:id])
-    @tagged_people = @memory.get_tagged_people
+    if Memory.find_by_id(params[:id])
+      @memory = Memory.find(params[:id])
+      @tagged_people = @memory.get_tagged_people
+    else
+      render "memories/_noaccess.html.erb"
+    end
+
   end
 
   def edit
-    @memory = Memory.find(params[:id])
-    @people = Person.all
+    if Memory.find_by_id(params[:id])
+      @memory = Memory.find(params[:id])
+      @people = current_user.family.people
+    else
+      render "memories/_noaccess.html.erb"
+    end
   end
 
   def update
@@ -55,7 +64,7 @@ class MemoriesController < ApplicationController
   private
 
   def memory_params
-    params.require(:memory).permit(:title, :description, :image_url)
+    params.require(:memory).permit(:title, :description, :image_url, :image)
   end
 
 end

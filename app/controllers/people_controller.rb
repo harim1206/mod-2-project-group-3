@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  before_action :authorize
   def index
     @people = current_user.family.people.sort_by{|person| person.dob.strftime("%Y%m%d").to_i}
     @family = current_user.family
@@ -23,11 +24,19 @@ class PeopleController < ApplicationController
    end
 
   def show
-    @person = Person.find(params[:id])
+    if Person.find_by_id(params[:id])
+      @person = Person.find(params[:id])
+    else
+      render "people/_noaccess.html.erb"
+    end
   end
 
   def edit
-    @person = Person.find(params[:id])
+    if Person.find_by_id(params[:id])
+      @person = Person.find(params[:id])
+    else
+      render "people/_noaccess.html.erb"
+    end
   end
 
   def update
@@ -48,6 +57,6 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :bio, :dob, :dod, :image_url)
+    params.require(:person).permit(:first_name, :last_name, :bio, :dob, :dod, :image)
   end
 end

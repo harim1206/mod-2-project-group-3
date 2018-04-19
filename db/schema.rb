@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416173646) do
+ActiveRecord::Schema.define(version: 20180419125638) do
 
   create_table "families", force: :cascade do |t|
     t.string "family_name"
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 20180416173646) do
     t.string "family_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "memories", force: :cascade do |t|
@@ -29,6 +33,10 @@ ActiveRecord::Schema.define(version: 20180416173646) do
     t.integer "family_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "people", force: :cascade do |t|
@@ -44,6 +52,10 @@ ActiveRecord::Schema.define(version: 20180416173646) do
     t.integer "family_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "tags", force: :cascade do |t|
