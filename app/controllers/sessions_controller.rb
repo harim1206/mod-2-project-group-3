@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     if @person.valid? && @family.authenticate(params[:person][:family_password])
       @person.save
       session[:person_id] = @person.id
-      redirect_to edit_person_path(@person)
+      redirect_to '/'
     elsif @person.valid?
       flash[:errors] = ["You have typed the incorrect family password."]
       redirect_to signup_path
@@ -71,9 +71,13 @@ class SessionsController < ApplicationController
   end
 
   def show
-    if current_user.family.memories.shuffle.any?
-      @memories = current_user.family.memories.shuffle.slice(0..9)
+    if current_user.family.memories.any?
+      picturememories = current_user.family.memories.select do |memory|
+        memory.image_url || memory.image.url != "/app/assets/images/missing_memory.jpg"
+      end
+      @memories = picturememories.shuffle.slice(0..9)
     end
+    @people = current_user.family.people.sort_by{|person| person.dob.strftime("%Y%m%d").to_i}
   end
 
   def edit
@@ -116,7 +120,7 @@ class SessionsController < ApplicationController
 
   def person_params
     params.require(:person).permit(:first_name, :last_name,
-      :username, :password, :password_confirmation, :family_id, :dob)
+      :username, :password, :password_confirmation, :family_id, :dob, :bio)
   end
 
   def account_params

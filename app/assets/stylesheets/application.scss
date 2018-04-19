@@ -69,6 +69,9 @@
  }
 
 
+
+
+
  //
  // sessions/new.html.erb
  //
@@ -115,6 +118,28 @@
    margin-left: auto;
    margin-left: auto;
  }
+
+
+//sessions/show.html
+.ek-memory-container img{
+  width: 100%
+}
+
+.ek-memory-image-container{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.ek-memory-column img{
+  max-width: 200px;
+  max-height: 200px;
+  margin: 10px;
+}
+
+
+
+
+
 
 
 

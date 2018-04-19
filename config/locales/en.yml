@@ -29,5 +29,17 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+
 en:
+  activerecord:
+    attributes:
+      person:
+        dob: "Date of birth"
+    errors:
+      models:
+        person:
+          attributes:
+            dob:
+              blank: "can't be blank"
+
   hello: "Hello world"
