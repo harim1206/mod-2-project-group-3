@@ -1,7 +1,17 @@
 <h2> <%= @family.family_name %> Memories </h2>
 
-<% @memories.each do |memory| %>
-  <ul>
-    <li> <%= link_to(memory.title, memory) %></li>
-  </ul>
-<% end %>
+
+
+
+  <div class="memories-container">
+    <% @memories.each do |memory| %>
+      <div>
+        <div>
+          <%= link_to image_tag(memory.image_url), memory %>
+        </div>
+        <div class="memories-title">
+          <%=  memory.title %>
+        </div>
+      </div>
+    <% end  %>
+  </div>

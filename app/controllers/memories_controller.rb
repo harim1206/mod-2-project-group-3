@@ -4,6 +4,8 @@ class MemoriesController < ApplicationController
   def index
     @family = current_user.family
     @memories = current_user.family.memories
+
+
   end
 
   def new

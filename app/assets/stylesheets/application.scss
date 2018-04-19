@@ -1,0 +1,194 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import url('https://fonts.googleapis.com/css?family=Cardo');
+
+
+ * {
+   font-family: Cardo;
+ }
+
+ h2 {
+   font-family: Cardo !important;
+   font-weight: bolder !important;
+   border-bottom: 0 !important;
+ }
+
+ .yield{
+   padding-left: 30px;
+   padding-right: 30px;
+ }
+
+
+ // layout
+ .nav-bar{
+   display: flex;
+   justify-content: space-between;
+   border-bottom: lightgrey 1px solid;
+
+ }
+ #family-initial-logo{
+   position:relative;
+   top: 5px;
+   font-size: 30px;
+   // border: 1px solid;
+   padding-bottom: 0px;
+
+   padding-left: 40px;
+   font-weight: bold;
+
+ }
+
+ .nav-bar-links{
+   padding-top: 20px;
+   padding-bottom: 10px;
+   text-align:right;
+   color:black;
+   // border: 1px solid;
+
+ }
+
+
+
+ .nav-bar-links a {
+   color:black !important;
+   margin-left: 5px;
+   margin-right: 5px;
+ }
+
+
+ //
+ // sessions/new.html.erb
+ //
+ .masthead{
+   height: 100%;
+   background: url(/assets/masthead.jpg) bottom center scroll;
+   background-color: black;
+   background-position: top;
+   margin-top: -20px;
+ }
+
+ .transbox{
+    position: relative;
+    top: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: #ffffff;
+    // border: 1px solid black;
+    opacity: 0.65;
+
+
+ }
+
+
+ .login .form{
+   width: 50%;
+   text-align: center;
+   margin-left: auto;
+   margin-right: auto;
+   padding-bottom: 30px;
+ }
+
+ .login h2{
+   font-size: 80px;
+ }
+
+ input[type=submit]{
+   padding-left: 10px;
+   padding-right: 10px;
+ }
+
+ .errors-div{
+   width: 75%;
+   margin-left: auto;
+   margin-left: auto;
+ }
+
+
+
+// memories/index.html
+
+.memories-container{
+  display:flex;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.memories-container img{
+  margin: 10px;
+  max-width: 200px;
+  max-height: 300px;
+}
+
+.memories-title{
+  text-align: center;
+  font-size: 10px;
+}
+
+// people/index.html
+
+.hc-edit-family{
+  text-align:center;
+  margin:auto;
+}
+
+.hc-people-container{
+  display:flex;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.hc-people-container img{
+  margin: 10px;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.hc-person-name{
+  text-align: center;
+  font-size: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+
+
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";

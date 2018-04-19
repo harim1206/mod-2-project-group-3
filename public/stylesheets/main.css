@@ -1,3 +1,4 @@
+
 @media screen {
   /* --- Reset Styles --- */
   * {
@@ -15,6 +16,10 @@
   }
 
   /* --- Welcome Page Styles --- */
+
+
+
+
   body {
     background-color: white;
     color: #333;
@@ -92,7 +97,39 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 600px) {
   .wrapper {

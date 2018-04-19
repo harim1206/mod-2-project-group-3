@@ -1,18 +1,28 @@
 <% if flash[:errors] %>
-  <ul>
-    <br/>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %><br/>
-
-<h2>Login</h2>
-
-<%= form_tag '/login' do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %> <br/><br/>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %><br/><br/>
-  <%= submit_tag "Submit" %>
+  <div class="errors-div">
+    <ul>
+      <br/>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
+
+<div class = "masthead">
+
+  <div class="transbox">
+    <div class="login">
+      <h2>Hello Gorgeous</h2>
+      <div class = "form">
+        <%= form_tag '/login' do %>
+
+          Username: <%= text_field_tag :username %> <br><br>
+          Password: <%= password_field_tag :password %><br><br>
+          <%= submit_tag "Submit" %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
