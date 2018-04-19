@@ -50,6 +50,12 @@ class MemoriesController < ApplicationController
     @memory.update(memory_params)
     if @memory.valid?
       redirect_to @memory
+      @memory.tags.each do |tag|
+        tag.destroy
+      end
+      params[:memory][:person_ids].each do |id|
+        @memory.create_tag(id)
+      end
     else
       flash[:errors] = @memory.errors.full_messages
       redirect_to edit_memory_path
