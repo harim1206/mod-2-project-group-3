@@ -1,0 +1,28 @@
+<% if flash[:errors] %>
+  <ul>
+    <br/>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %><br/>
+
+<%= form_for(@person) do |f| %>
+  <%= f.label :first_name %><br/>
+  <%= f.text_field :first_name %><br/>
+  <%= f.label :last_name %><br/>
+  <%= f.text_field :last_name %><br/>
+  <%= f.label :bio %><br/>
+  <%= f.text_field :bio %><br/>
+  <%= f.label :date_of_birth %><br/>
+  <%= f.date_field :dob %><br/>
+  <%= f.label :date_of_death %><br/>
+  <%= f.date_field :dod %><br/>
+  <%= f.label :picture %><br/>
+  <%= f.text_field :image_url %><br/>
+  <% if @person == current_user %>
+    <%= f.submit "Update Account" %>
+  <% else %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

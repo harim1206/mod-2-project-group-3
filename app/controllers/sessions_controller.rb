@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     if @person.valid? && @family.authenticate(params[:person][:family_password])
       @person.save
       session[:person_id] = @person.id
-      redirect_to '/'
+      redirect_to edit_person_path(@person)
     elsif @person.valid?
       flash[:errors] = ["You have typed the incorrect family password."]
       redirect_to signup_path
@@ -44,11 +44,11 @@ class SessionsController < ApplicationController
       if family.authenticate(params[:family_password])
         render "sessions/existingmember.html.erb"
       else
-        flash[:error] = "You typed an incorrect family password!"
+        flash[:errors] = ["You typed an incorrect family password!"]
         redirect_to choosefamily_path
       end
     else
-      flash[:error] = "You need to choose a family!"
+      flash[:errors] = ["You need to choose a family!"]
       redirect_to choosefamily_path
     end
   end
@@ -59,24 +59,21 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def create
+    @person = Person.find_by_username(params[:username])
+    if @person && @person.authenticate(params[:password]) && @person.is_account
+      session[:person_id] = @person.id
+      redirect_to '/'
+    else
+      flash[:errors] = ["You have entered the incorrect username or password."]
+      redirect_to '/login'
+    end
+  end
+
   def show
-
-      @memories = Memory.all
-      @memories= current_user.family.memories
-
-      @random = []
-      count = 0
-      while count < 3 do
-       random_memory = @memories.sample
-       if !@random.include?(random_memory)
-         @random << random_memory
-         count += 1
-       end
-      end
-
-
-      # byebug
-
+    if current_user.family.memories.shuffle.any?
+      @memories = current_user.family.memories.shuffle.slice(0..9)
+    end
   end
 
   def edit
@@ -96,22 +93,18 @@ class SessionsController < ApplicationController
     end
   end
 
-  def create
-    @person = Person.find_by_username(params[:username])
-    if @person && @person.authenticate(params[:password]) && @person.is_account
-      session[:person_id] = @person.id
-      redirect_to '/'
-    else
-      flash[:error] = "You have entered the incorrect username or password."
-      redirect_to '/login'
-    end
+  def editselfaccount
+    @current_user = Person.find(session[:person_id])
+    render '/sessions/editselfaccount.html.erb'
   end
 
-  def edit
-    @current_user = Person.find(session[:person_id])
-
-
-    # byebug
+  def validatesself
+    if current_user.authenticate(params[:password])
+      redirect_to edit_person_path(current_user)
+    else
+      flash[:errors] = ["You typed the wrong password"]
+      redirect_to edit_path
+    end
   end
 
   def destroy
@@ -123,7 +116,7 @@ class SessionsController < ApplicationController
 
   def person_params
     params.require(:person).permit(:first_name, :last_name,
-      :username, :password, :password_confirmation, :family_id)
+      :username, :password, :password_confirmation, :family_id, :dob)
   end
 
   def account_params

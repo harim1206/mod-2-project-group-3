@@ -1,37 +1,14 @@
-
-<h1> Edit Family Memeber </h1>
-
-<%= form_for(@person) do |f| %>
-  <%= f.label :first_name %></br>
-
-  <%= f.text_field :first_name %></br></br>
-
-  <%= f.label :last_name %></br></br>
-
-  <%= f.text_field :last_name %></br></br>
-
-  <%= f.label :bio %></br></br>
-
-  <%= f.text_field :bio %></br></br>
-
-  <%= f.label :date_of_birth %></br></br>
-
-  <%= f.text_field :dob %></br></br>
-
-  <%= f.label :date_of_death %></br></br>
-
-  <%= f.text_field :dod %></br></br>
-
-  <%= f.label :picture %></br></br>
-
-  <%= f.text_field :image_url %></br></br>
-
-  <%= f.submit %>
-
+<% if !current_user.family.people.include?(@person) %>
+  <%= render 'noaccess' %>
+<% else %>
+  <h2> Edit <%= @person.full_name %> </h2>
+  <%= render 'form' %>
+  <br/>
+  <%= form_tag person_path(@person), method: 'delete' do %>
+  <% if @person == current_user %>
+    <%= submit_tag('Delete Account') %>
+  <% else %>
+    <%= submit_tag('Delete Person') %>
+  <% end %>
+  <% end %>
 <% end %>
-
-</br></br>
-
-<%= form_tag person_path(@person), method: 'delete' do %>
- <%= submit_tag('Delete Person') %>
- <% end %>

@@ -1,15 +1,18 @@
-<br><br>
-<% if flash[:error] %>
-  <br>
-  <h3>
-    <%= flash[:error] %>
-  </h3>
-<% end %>
+<% if flash[:errors] %>
+  <ul>
+    <br/>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %><br/>
 
-<h3> Choose A Family </h3>
+<h2> Choose A Family </h2>
 
 <%= form_tag "/existingsignup" do %>
-  <%= collection_select :family, :family_id, @families, :id, :family_name_and_id, prompt: true%><br>
-  Password: <%= password_field_tag :family_password %> <br>
+  <%= label_tag :choose_family %> <br/>
+  <%= collection_select :family, :family_id, @families, :id, :family_name_and_id, prompt: true%><br/>
+  <%= label_tag :family_password %><br/>
+  <%= password_field_tag :family_password %> <br/>
   <%= submit_tag "Choose Family" %>
 <% end %>

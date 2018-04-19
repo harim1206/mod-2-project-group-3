@@ -6,60 +6,51 @@ class MemoriesController < ApplicationController
     @memories = current_user.family.memories
   end
 
-
-
   def new
     @memory = Memory.new()
-    @people = Person.all
+    @people = current_user.family.people
   end
-
-
 
   def create
     @memory = Memory.new(memory_params)
     @memory.family_id = current_user.family.id
-
-    @memory.save
-
-    #create a new tag for each selected person
-    params[:memory][:person_ids].each do |id|
-      @memory.create_tag(id)
+    if @memory.valid?
+      @memory.save
+      params[:memory][:person_ids].each do |id|
+        @memory.create_tag(id)
+      end
+      redirect_to @memory
+    else
+      flash[:errors] = @memory.errors.full_messages
+      redirect_to new_memory_path
     end
-
-    redirect_to @memory
   end
-
-
 
   def show
-    @memory = current_user.family.memories.find(params[:id])
+    @memory = Memory.find(params[:id])
     @tagged_people = @memory.get_tagged_people
   end
-
-
 
   def edit
     @memory = Memory.find(params[:id])
     @people = Person.all
-
   end
-
-
 
   def update
     @memory = Memory.find(params[:id])
     @memory.update(memory_params)
-
-    redirect_to @memory
+    if @memory.valid?
+      redirect_to @memory
+    else
+      flash[:errors] = @memory.errors.full_messages
+      redirect_to edit_memory_path
+    end
   end
 
   def destroy
-    # byebug
     Memory.destroy(params[:id])
     redirect_to memories_path
   end
-
-
 
   private
 

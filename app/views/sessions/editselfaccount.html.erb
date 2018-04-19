@@ -7,12 +7,10 @@
   </ul>
 <% end %><br/>
 
-<h2>Login</h2>
+<h3>Type In Your Password</h3>
 
-<%= form_tag '/login' do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %> <br/><br/>
+<%= form_tag "/edit" do %>
   <%= label_tag :password %>
-  <%= password_field_tag :password %><br/><br/>
+  <%= password_field_tag :password %><br/>
   <%= submit_tag "Submit" %>
 <% end %>
