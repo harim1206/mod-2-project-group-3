@@ -1,4 +1,3 @@
-
 <% if flash[:error] %>
   <br>
   <h2>
@@ -6,12 +5,20 @@
   </h2>
 <% end %>
 
-<h2 class = "login">Login</h2>
+<div class = "masthead">
 
-<%= form_tag '/login' do %>
+  <div class="transbox">
+    <div class="login">
+      <h2>Hello Gorgeous</h2>
+      <div class = "form">
+        <%= form_tag '/login' do %>
 
-  Username: <%= text_field_tag :username %> <br><br>
-  Password: <%= password_field_tag :password %><br><br>
-  <%= submit_tag "Submit" %>
+          Username: <%= text_field_tag :username %> <br><br>
+          Password: <%= password_field_tag :password %><br><br>
+          <%= submit_tag "Submit" %>
 
-<% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

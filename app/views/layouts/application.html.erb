@@ -1,28 +1,76 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mod2PrjoectGroup3</title>
+    <title>Mod2ProjectGroup3</title>
+
+    <!-- Bootstrap CSS -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+    <link rel=“stylesheet” href=“https://use.typekit.net/jwo3xxc.css“>
+
+
+
+
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application' %>
 
+
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <br>
+
   </head>
 
-  <div>
-    <body>
-      <% if current_user %>
-        <%= link_to "Home", '/' %>  | Signed in as <%= current_user.first_name %> | <%= link_to "My Account", edit_path %> |<%= link_to "Logout", '/logout' %>
-      <% else %>
-        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/presignup' %> | <%= link_to "Create Family", new_family_path %>
-      <% end %>
+
+    <body id="page-top">
+
+      <div class = "nav-bar">
+        <div id="family-initial-logo">
+          <% if current_user %>
+            <%= current_user.family.family_name[0].upcase %>
+          <% end %>
+        </div>
+        <div class = "nav-bar-links">
+
+          <% if current_user %>
+            <%= link_to "Home", '/' %>  | Signed in as <%= current_user.first_name %> in <%= current_user.family.family_name %> family | <%= link_to "My Account", edit_path %> |<%= link_to "Logout", '/logout' %>
+          <% else %>
+            <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/presignup' %> | <%= link_to "Create Family", new_family_path %>
+          <% end %>
+        </div>
+      </div>
+
+
       <%= yield %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </body>
-  </div>
+
   <footer>
   <small>&copy; 2018 <strong>Ancestry</strong></small>
   </footer>

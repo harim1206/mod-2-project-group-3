@@ -15,6 +15,7 @@ gem 'bootstrap_form',
   branch: 'master'
 
 
+gem 'jquery-rails'
 
 
 

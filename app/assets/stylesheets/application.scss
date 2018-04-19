@@ -13,9 +13,103 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css?family=Cardo');
+
+
+ * {
+   font-family: Proxima-nova;
+ }
+
+ .yield{
+   padding-left: 30px;
+   padding-right: 30px;
+ }
+
+
+ // layout
+ .nav-bar{
+   display: flex;
+   justify-content: space-between;
+   border-bottom: lightgrey 1px solid;
+
+ }
+ #family-initial-logo{
+   position:relative;
+   top: 5px;
+   font-size: 30px;
+   // border: 1px solid;
+   padding-bottom: 0px;
+
+   padding-left: 40px;
+   font-weight: bold;
+
+ }
+
+ .nav-bar-links{
+   padding-top: 20px;
+   padding-bottom: 10px;
+   text-align:right;
+   color:black;
+   // border: 1px solid;
+
+ }
+
+
+
+ .nav-bar-links a {
+   color:black !important;
+   margin-left: 5px;
+   margin-right: 5px;
+ }
+
+
+
+ // sessions/new.html.erb
+ .masthead{
+   height: 100%;
+   background: url(/assets/masthead.jpg) bottom center scroll;
+   background-color: black;
+   background-position: top;
+ }
+
+ .transbox{
+    position: relative;
+    top: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: #ffffff;
+    // border: 1px solid black;
+    opacity: 0.65;
+
+
+ }
+
+
+ .login .form{
+   width: 50%;
+   text-align: center;
+   margin-left: auto;
+   margin-right: auto;
+   padding-bottom: 30px;
+ }
+
+ .login h2{
+   font-size: 80px;
+ }
+
+ input[type=submit]{
+   padding-left: 10px;
+   padding-right: 10px;
+ }
+
+
+
+
+
+
+
+
 
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
-
- 
