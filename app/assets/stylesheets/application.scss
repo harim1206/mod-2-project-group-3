@@ -45,6 +45,7 @@
    border-bottom: lightgrey 1px solid;
 
  }
+
  #family-initial-logo{
    position:relative;
    top: 5px;
@@ -81,9 +82,10 @@
  //
  // sessions/new.html.erb
  //
+
  .masthead{
    height: 100%;
-   background: url(/assets/masthead.jpg) bottom center scroll;
+   background: url(/assets/masthead.jpg) center scroll;
    background-color: black;
    background-position: top;
    margin-top: -20px;
@@ -111,7 +113,8 @@
  }
 
  .login h2{
-   font-size: 80px;
+   padding-top: 2rem;
+   font-size: 5rem;
  }
 
  input[type=submit]{
@@ -125,21 +128,114 @@
    margin-left: auto;
  }
 
+//
+// sessions/whichaccount.html.erb
+//
+
+.hc-new-acct-container{
+  height: 100%;
+  // border: solid 1px;
+  text-align: center;
+}
+
+.hc-new-acct-options{
+  padding-top: 10rem;
+  display: inline-block;
+
+  // border: solid 1px;
+}
+
+.hc-new-acct-options a{
+  margin-bottom: 5rem;
+}
+
+//
+//  sessions/newaccount.html.erb
+//
+
+.hc-sign-up-form{
+  height:100%;
+  text-align:center;
+}
+.hc-sign-up-form-container{
+  display: inline-block;
+}
+
+.hc-sign-up-form form{
+  padding-top: 5rem;
+  text-align: left
+
+
+}
+
+
+
+
+
 
 //sessions/show.html
+.row{
+  padding: 0px !important;
+}
+
+.ek-memory-name-container{
+  text-align: center;
+
+}
+
+.ek-memory-name{
+  padding-top: 2rem;
+  padding-left: 5rem;
+  text-align:left;
+  margin: auto;
+  border: solid 1px #BFBFBF;
+  height: 100%;
+
+}
+
+.show-links a{
+  margin-bottom: 4rem;
+}
+
+.ek-memory-name .show-links{
+  margin-bottom: 4rem;
+}
+
+
 .ek-memory-container img{
   width: 100%
 }
+
+.ek-memory-name p{
+  margin-bottom: 8px !important;
+}
+
 
 .ek-memory-image-container{
   display:flex;
   flex-wrap: wrap;
 }
 
-.ek-memory-column img{
-  max-width: 200px;
-  max-height: 200px;
+.ek-memory-column{
+  border: solid 1px lightgrey;
   margin: 10px;
+}
+
+.ek-memory-column img{
+  max-width: 300px;
+  max-height: 250px;
+
+}
+
+.ek-memory-column p{
+  font-size: 1rem;
+
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: 12rem;
+  word-wrap: break-word;
+
 }
 
 
@@ -148,7 +244,7 @@
 
   // people/show
   .row {
-      padding: 35px 70px 50px 90px;
+    padding: 35px 70px 50px 90px;
   }
 
   .bio{
@@ -158,26 +254,20 @@
 
 
  .captionks {
-           float:left;
-           width: 210px;
-           text-align: center;
-           font-size: 13.5pt;
-           padding: 10px 10px 20px 10px;
+   float:left;
+   width: 210px;
+   text-align: center;
+   font-size: 13.5pt;
+   padding: 10px 10px 20px 10px;
  }
 
+
  // memories/show
-
  .descriptionks{
-             padding: 40px 70px 70px 100px;
-             font-family: Cardo;
-             font-size: 14pt;
-           }
-
-
-
-
-
-
+   padding: 40px 70px 70px 100px;
+   font-family: Cardo;
+   font-size: 14pt;
+  }
 
 
 

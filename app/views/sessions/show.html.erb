@@ -1,33 +1,51 @@
 
-<div class="show-body">
-
-  <div class = "show-links">
-    <%= link_to "View All Family Members", people_path %><br/>
-    <%= link_to "Add New Family Member", new_person_path %><br/>
-    <%= link_to "Add New Memory", new_memory_path %><br/>
-    <%= link_to "View All Memories", memories_path %><br/>
-  </div>
-</div>
 
 
-  <div class="ek-memory-name-container">
-    <% @people.each do |person| %>
-    <p><%= link_to person.full_name, person %></p>
-    <% end %>
-  </div>
+  <div class="row">
+    <div class="ek-memory-name-container col-md-2">
 
-  <div class="ek-memory-image-container">
-    <% if @memories %>
-      <% @memories.each_with_index do |memory, index| %>
-        <div class="ek-memory-column">
-          <% if memory.image.url != "/app/assets/images/missing_memory.jpg"%>
-            <%= link_to image_tag(memory.image.url(:medium)), memory %>
-          <% elsif memory.image_url && memory.image_url.strip != "" %>
-            <%= link_to image_tag(memory.image_url), memory %>
-          <% else %>
-            <%= link_to image_tag("/assets/missing_memory.jpg"), memory %>
-          <% end %>
+      <div class = "ek-memory-name">
+
+
+        <div class = "show-links">
+          <%= link_to "View All Family Members", people_path %><br/>
+          <%= link_to "Add New Family Member", new_person_path %><br/>
+          <%= link_to "Add New Memory", new_memory_path %><br/>
+          <%= link_to "View All Memories", memories_path %><br/>
         </div>
+        
+
+        <% @people.each do |person| %>
+          <p><%= link_to person.full_name, person %></p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="ek-memory-image-container col-md-10">
+      <% if @memories %>
+        <% @memories.each_with_index do |memory, index| %>
+
+
+          <div>
+            <div class="ek-memory-column">
+              <% if memory.image.url != "/app/assets/images/missing_memory.jpg"%>
+                <%= link_to image_tag(memory.image.url(:medium)), memory %>
+              <% elsif memory.image_url && memory.image_url.strip != "" %>
+                <%= link_to image_tag(memory.image_url), memory %>
+              <% else %>
+                <%= link_to image_tag("/assets/missing_memory.jpg"), memory %>
+              <% end %>
+
+              <p>
+                <%=  memory.title %>
+              </p>
+            </div>
+          </div>
+
+
+
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+
   </div>
