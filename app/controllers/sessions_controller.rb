@@ -75,7 +75,7 @@ class SessionsController < ApplicationController
       picturememories = current_user.family.memories.select do |memory|
         memory.image_url || memory.image.url != "/app/assets/images/missing_memory.jpg"
       end
-      @memories = picturememories.shuffle.slice(0..9)
+      @memories = picturememories.shuffle.slice(0..11)
     end
     @people = current_user.family.people.sort_by{|person| person.dob.strftime("%Y%m%d").to_i}
   end

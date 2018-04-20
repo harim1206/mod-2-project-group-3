@@ -30,6 +30,7 @@
    font-family: Cardo !important;
    font-weight: bolder !important;
    border-bottom: 0 !important;
+   font-size: 3rem;
  }
 
  .yield{
@@ -359,13 +360,14 @@
 
 
 .formpeople{
-  padding-left: 600px;
-  padding-right: 100px;
+  padding-left: 60rem;
+  padding-right: 10rem;
   align-content: right;
 }
 
 .bodypeople{
   background: url(http://earthdeco.us/wp-content/uploads/2018/04/roots-clipart-unique-20-best-free-use-family-tree-low-zero-cost-images-on.jpg) no-repeat;
+  background-position: 5% 15%;
 }
 
 
@@ -374,15 +376,18 @@
 
 .bodymemories{
   background: url(https://image.freepik.com/free-photo/old-vintage-camera-on-old-books-on-wooden-background-old-vintage-holiday-concept_1220-1115.jpg) no-repeat;
-
+  background-position: 10% 20%;
 }
 
 .formmemories{
-padding-left: 800px;
-padding-right: 100px;
+padding-left: 80rem;
+padding-right: 10rem;
 align-content: right;
 }
 
+.form-check-label{
+  padding-left: 2rem;
+}
 // /family/new
 .formfamily{
   padding-left: 600px;
@@ -392,6 +397,8 @@ align-content: right;
 
 .bodyfamily{
   background: url(https://dspncdn.com/a1/media/692x/08/51/be/0851bea82034a230c1568aab3bdccd64.jpg) no-repeat;
+  background-position: 10% 0%;
+  background-size: contain;
 }
 
 
