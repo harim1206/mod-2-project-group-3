@@ -234,13 +234,11 @@
 
 .ek-memory-column p{
   font-size: 1rem;
-
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   max-width: 12rem;
   word-wrap: break-word;
-
 }
 
 
@@ -257,13 +255,36 @@
     font-size: 14pt;
   }
 
+  .col-md-4{
+    float: left;
+    width: 33.33%
+  }
+
+  .col-md-4 img{
+    display:block;
+    margin:auto;
+    max-width: 25rem;
+    max-height: 25rem;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
  .captionks {
-   float:left;
-   width: 210px;
+   font-size: 1.5rem;
+   margin-left: auto;
+   margin-right: auto;
    text-align: center;
-   font-size: 13.5pt;
-   padding: 10px 10px 20px 10px;
+   max-width: 13rem;
+   word-wrap: break-word;
+ }
+
+ .container-fluid img {
+   max-width: 35rem;
+   max-height: 35rem;
  }
 
 

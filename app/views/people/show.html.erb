@@ -20,7 +20,6 @@
 <div class="container-fluid">
   <h2> <%=  @person.full_name%> </h2>
   <center><img src=" <%= @person.image.url (:large)%> " alt="" class="img-rounded"></center>
-
   <% if @person.image.url != "/app/assets/images/missing_user.png"%>
     <center><img src= <%= @person.image.url (:large)%>  alt="" class="img-rounded"></center>
   <% elsif @person.image_url && @person.image_url.strip != "" %>
@@ -33,8 +32,6 @@
   <p>
     <ul>
       <center>
-
-
         <div class="bio">
           <label>Biography: </label>  <%= @person.bio %></br></br>
           <label>Date of Birth: </label>  <%= @person.dob %></br></br>
@@ -67,52 +64,44 @@
   <% if @person.memories.any? %>
     <h2>Memories</h2>
 
+    <div class="row">
     <% @person.memories.each_with_index do |memory, index| %>
 
 
         <% if index % 3 == 0 %>
-              <div class="row">
-
-
-
-                <div class="col-md-4">
-                  <div class="img-fluid" alt="Responsive image">
-                    <% if memory.image.url != "/app/assets/images/missing_memory.jpg" %>
-                      <%= image_tag(memory.image.url(:medium)) %>
-                    <% elsif memory.image_url && memory.image_url.strip != "" %>
-                      <%=  image_tag(memory.image_url) %>
-                    <% else %>
-                      <%= image_tag("/assets/missing_memory.jpg") %>
-                    <% end %>
-                      <div class="captionks">
-                        <p> <%= link_to memory.title, memory %></p>
-                      </div>
-
-                  </div>
-                </div>
-
-                <% elsif index % 3 == 1%>
-
-                  <div class="col-md-4">
-                  <div class="img-fluid" alt="Responsive image">
-
-
-                    <% if memory.image.url != "/app/assets/images/missing_memory.jpg" %>
-                      <%= image_tag(memory.image.url(:medium)) %>
-                    <% elsif memory.image_url && memory.image_url.strip != "" %>
-                      <%=  image_tag(memory.image_url) %>
-                    <% else %>
-                      <%= image_tag("/assets/missing_memory.jpg") %>
-                    <% end %>
-
-                    <div class="captionks">
-                      <p> <%= link_to memory.title, memory %></p>
-                    </div>
-
-                    </div>
+          <div class="col-md-4">
+            <div class="img-fluid" alt="Responsive image">
+              <% if memory.image.url != "/app/assets/images/missing_memory.jpg" %>
+                <%= image_tag(memory.image.url(:medium)) %>
+              <% elsif memory.image_url && memory.image_url.strip != "" %>
+                <%=  image_tag(memory.image_url) %>
+              <% else %>
+                <%= image_tag("/assets/missing_memory.jpg") %>
+              <% end %>
+              <div class="captionks">
+                <p> <%= link_to memory.title, memory %></p>
               </div>
+            </div>
+          </div>
+        <% elsif index % 3 == 1%>
 
-                <% else %>
+          <div class="col-md-4">
+            <div class="img-fluid" alt="Responsive image">
+              <% if memory.image.url != "/app/assets/images/missing_memory.jpg" %>
+                <%= image_tag(memory.image.url(:medium)) %>
+              <% elsif memory.image_url && memory.image_url.strip != "" %>
+                <%=  image_tag(memory.image_url) %>
+              <% else %>
+                <%= image_tag("/assets/missing_memory.jpg") %>
+              <% end %>
+
+              <div class="captionks">
+                <p> <%= link_to memory.title, memory %></p>
+              </div>
+            </div>
+          </div>
+
+        <% else %>
 
                   <div class="col-md-4">
                   <div class="img-fluid" alt="Responsive image">
@@ -135,13 +124,13 @@
 
 
 
-              </div>
 
 
 
     <% end %>
   <% end %>
 
+</div>
 
 <% end %>
 
@@ -163,6 +152,7 @@
 
 </body>
 
-</html>
 
 <% end %>
+
+</html>
