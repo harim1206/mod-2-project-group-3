@@ -117,11 +117,11 @@ class SessionsController < ApplicationController
 
   def person_params
     params.require(:person).permit(:first_name, :last_name,
-      :username, :password, :password_confirmation, :family_id, :dob)
+      :username, :password, :password_confirmation, :family_id, :dob, :bio)
   end
 
   def account_params
-    params.require(:person).permit(:username, :password, :password_confirmation, :_bio)
+    params.require(:person).permit(:username, :password, :password_confirmation)
   end
 
 end

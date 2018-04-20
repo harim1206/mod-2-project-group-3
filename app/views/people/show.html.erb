@@ -20,12 +20,12 @@
 <div class="container-fluid">
   <h2> <%=  @person.full_name%> </h2>
   <center><img src=" <%= @person.image.url (:large)%> " alt="" class="img-rounded"></center>
-  <% if @person.image.url != "/app/assets/images/missing_user.png"%>
+  <% if @person.image.url != "/app/assets/images/main-bg-2.jpg"%>
     <center><img src= <%= @person.image.url (:large)%>  alt="" class="img-rounded"></center>
   <% elsif @person.image_url && @person.image_url.strip != "" %>
     <center><img src= <%= @person.image_url%> alt="" class="img-rounded"></center>
   <% else %>
-    <center><img src= "/assets/missing_user.png" alt="" class="img-rounded"></center>
+    <center><img src= "/assets/main-bg-2.jpg" alt="" class="img-rounded"></center>
   <% end %>
 
 
