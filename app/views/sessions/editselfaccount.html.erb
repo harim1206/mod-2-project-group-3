@@ -7,10 +7,14 @@
   </ul>
 <% end %><br/>
 
-<h3>Type In Your Password</h3>
-
+<h2>Type In Your Password</h2>
+<center>
+<div class= "formeditfamily">
 <%= form_tag "/edit" do %>
   <%= label_tag :password %>
-  <%= password_field_tag :password %><br/>
+  <%= password_field_tag :password %><br/><br/>
   <%= submit_tag "Submit" %>
+  <br/><br/>
+</div>
+</center>
 <% end %>

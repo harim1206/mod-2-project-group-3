@@ -50,8 +50,15 @@ class PeopleController < ApplicationController
   end
 
   def destroy
-   @person = Person.destroy(params[:id])
-   redirect_to people_path
+   @person = Person.find(params[:id])
+   if @person == current_user
+     @person.destroy
+     session[:person_id] = nil
+     redirect_to '/login'
+   else
+     @person.destroy
+     redirect_to people_path
+   end
   end
 
   private

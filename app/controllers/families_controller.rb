@@ -37,11 +37,11 @@ before_action :authorize, only: [:show, :edit, :update]
   private
 
   def family_account_params
-    params.require(:family).permit(:family_name, :family_info, :password, :password_confirmation)
+    params.require(:family).permit(:family_name, :password, :password_confirmation)
   end
 
   def family_params
-    params.require(:family).permit(:family_name, :family_info)
+    params.require(:family).permit(:family_name)
   end
 
 
