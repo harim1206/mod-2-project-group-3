@@ -1,9 +1,7 @@
 class PeopleController < ApplicationController
   before_action :authorize
   def index
-
     @people = current_user.family.people.sort_by{|person| person.dob.strftime("%Y%m%d").to_i}
-    # byebug
     @family = current_user.family
   end
 

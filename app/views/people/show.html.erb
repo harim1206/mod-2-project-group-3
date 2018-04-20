@@ -16,9 +16,18 @@
 
 <body>
 
+
 <div class="container-fluid">
   <h2> <%=  @person.first_name %> <%= @person.last_name %></h2>
   <center><img src=" <%= @person.image.url (:large)%> " alt="" class="img-rounded"></center>
+
+  <% if @person.image.url != "/app/assets/images/missing_user.png"%>
+    <center><img src= <%= @person.image.url (:large)%>  alt="" class="img-rounded"></center>
+  <% elsif @person.image_url && @person.image_url.strip != "" %>
+    <center><img src= <%= @person.image_url%> alt="" class="img-rounded"></center>
+  <% else %>
+    <center><img src= "/assets/missing_user.png" alt="" class="img-rounded"></center>
+    <% end %>
   <p><ul>
     <center>
       <div class="bio">
@@ -31,8 +40,8 @@
   </div>
     <% if !@person.is_account %>
   <button type="button" class="btn btn-link"><%= link_to("Edit Person", edit_person_path )%></button>
-  <button type="button" class="btn btn-link"><%= link_to("All Family Members", people_path) %></button>
   <% end %>
+  <button type="button" class="btn btn-link"><%= link_to("All Family Members", people_path) %></button>
 
   </center>
   </ul></p>
@@ -50,7 +59,13 @@
 <div class="row">
   <div class="col-md-4">
     <div class="img-fluid" alt="Responsive image">
-        <img "<%=image_tag(memory.image.url(:medium))%>
+      <% if memory.image.url != "/app/assets/images/missing_memory.jpg" %>
+        <%= image_tag(memory.image.url(:medium)) %>
+      <% elsif memory.image_url && memory.image_url.strip != "" %>
+        <%=  image_tag(memory.image_url) %>
+      <% else %>
+        <%= image_tag("/assets/missing_memory.jpg") %>
+      <% end %>
         <div class="captionks">
           <p> <%= link_to memory.title, memory %></p>
         </div>
@@ -58,25 +73,34 @@
     </div>
   </div>
 
-
   <% elsif index % 3 == 1%>
 
   <div class="col-md-4">
     <div class="img-fluid" alt="Responsive image">
-      <img <%= link_to image_tag(memory.image.url(:medium)), memory %>
+      <% if memory.image.url != "/app/assets/images/missing_memory.jpg" %>
+        <%= image_tag(memory.image.url(:medium)) %>
+      <% elsif memory.image_url && memory.image_url.strip != "" %>
+        <%=  image_tag(memory.image_url) %>
+      <% else %>
+        <%= image_tag("/assets/missing_memory.jpg") %>
+      <% end %>
         <div class="captionks">
           <p> <%= link_to memory.title, memory %></p>
         </div>
-
 
   </div>
 </div>
   <% else %>
 
-
   <div class="col-md-4">
     <div class="img-fluid" alt="Responsive image">
-      <img <%= link_to image_tag(memory.image.url(:medium)), memory %>
+      <% if memory.image.url != "/app/assets/images/missing_memory.jpg" %>
+        <%= image_tag(memory.image.url(:medium)) %>
+      <% elsif memory.image_url && memory.image_url.strip != "" %>
+        <%=  image_tag(memory.image_url) %>
+      <% else %>
+        <%= image_tag("/assets/missing_memory.jpg") %>
+      <% end %>
         <div class="captionks">
           <p> <%= link_to memory.title, memory %></p>
         </div>
@@ -89,8 +113,6 @@
 <% end %>
 </ul>
 </body>
-
-
 
 </html>
 

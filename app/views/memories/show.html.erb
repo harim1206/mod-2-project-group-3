@@ -16,8 +16,13 @@
 
   <div class="container-fluid">
     <h2> <%= @memory.title %> </h2>
-    <% if @memory.image.url != "/images/original/missing.png" %>
-      <center><img src= "<%= @memory.image.url(:large) %> " alt="" class="img-rounded"></center>
+    <% if @memory.image.url != "/app/assets/images/missing_memory.jpg" %>
+      <center><img src=<%= @memory.image.url(:large) %> alt="" class="img-rounded"></center>
+    <% elsif @memory.image_url && @memory.image_url.strip != "" %>
+      <center><img src=<%= @memory.image_url %> alt="" class="img-rounded"></center>
+    <% else %>
+      <center><img src="/assets/missing_memory.jpg" alt="" class="img-rounded"></center>
+    <% end %>
       <p><ul>
         <center>
           <div class="descriptionks">
@@ -31,7 +36,7 @@
             <li><%= link_to p.full_name, p %></li>
           </ul>
         <% end %>
-      <% end %>
+
       <br/>
       <%= link_to("Edit Memory", edit_memory_path )%> |
       <%= link_to("All Memories", memories_path) %>

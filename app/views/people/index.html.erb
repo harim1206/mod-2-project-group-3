@@ -6,8 +6,12 @@
   <% @people.each do |person| %>
     <div>
       <div class="hc-person-img">
-        <% if person.image_url %>
-          <%=  link_to image_tag(person.image_url), person%></li>
+        <% if person.image.url != "/app/assets/images/missing_user.png"%>
+          <%= link_to image_tag(person.image.url(:medium)), person %>
+        <% elsif person.image_url && person.image_url.strip != "" %>
+          <%= link_to image_tag(person.image_url), person %>
+          <% else %>
+            <%= link_to image_tag("/assets/missing_user.png"), person %>
         <% end %>
       </div>
       <div class="hc-person-name">
