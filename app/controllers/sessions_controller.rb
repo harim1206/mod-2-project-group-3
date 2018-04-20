@@ -71,8 +71,15 @@ class SessionsController < ApplicationController
   end
 
   def show
+
     if current_user.family.memories.shuffle.any?
-      @memories = current_user.family.memories.shuffle.slice(0..9)
+      @memories = current_user.family.memories.shuffle.slice(0..11)
+
+      @column1 = @memories[0..3]
+      @column2 = @memories[4..7]
+      @column3 = @memories[8..11]
+
+
     end
     @people = current_user.family.people.sort_by{|person| person.dob.strftime("%Y%m%d").to_i}
   end

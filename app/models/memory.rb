@@ -22,4 +22,17 @@ class Memory < ApplicationRecord
     tagged_people
   end
 
+
+  def get_correct_memory_link
+
+    if self.image.url != "/app/assets/images/missing_memory.jpg"
+       return self.image.url(:medium)
+    elsif self.image_url && self.image_url.strip != ""
+       return self.image_url
+    else
+       return "/assets/missing_memory.jpg"
+    end
+
+  end
+
 end
