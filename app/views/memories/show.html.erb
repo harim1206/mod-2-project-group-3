@@ -14,8 +14,9 @@
 
   <body>
 
-  <div class="container-fluid">
+  <div class="container-fluid hc-show-memory-container">
     <h2> <%= @memory.title %> </h2>
+
     <% if @memory.image.url != "/app/assets/images/missing_memory.jpg" %>
       <center><img src=<%= @memory.image.url(:large) %> alt="" class="img-rounded"></center>
     <% elsif @memory.image_url && @memory.image_url.strip != "" %>
@@ -23,14 +24,20 @@
     <% else %>
       <center><img src="/assets/missing_memory.jpg" alt="" class="img-rounded"></center>
     <% end %>
-      <p><ul>
+
+
+      <p>
+
         <center>
           <div class="descriptionks">
 
 
-            <label>Description: </label>  <%= @memory.description %></br></br>
+            <label>Description: </label>
+            <%= @memory.description %></br></br>
           </div>
+
           Tagged People: <br/>
+
         <% @tagged_people.each do |p| %>
           <ul>
             <li><%= link_to p.full_name, p %></li>
@@ -41,7 +48,7 @@
       <%= link_to("Edit Memory", edit_memory_path )%> |
       <%= link_to("All Memories", memories_path) %>
       </center>
-    </ul></p>
+    </p>
   </div>
 
 

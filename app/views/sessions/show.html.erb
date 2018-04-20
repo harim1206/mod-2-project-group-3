@@ -10,10 +10,10 @@
         <div class = "show-links">
           <%= link_to "View All Family Members", people_path %><br/>
           <%= link_to "Add New Family Member", new_person_path %><br/>
-          <%= link_to "Add New Memory", new_memory_path %><br/>
           <%= link_to "View All Memories", memories_path %><br/>
+          <%= link_to "Add New Memory", new_memory_path %><br/>
         </div>
-        
+
 
         <% @people.each do |person| %>
           <p><%= link_to person.full_name, person %></p>
