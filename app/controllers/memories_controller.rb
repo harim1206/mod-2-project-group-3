@@ -3,7 +3,7 @@ class MemoriesController < ApplicationController
 
   def index
     @family = current_user.family
-    @memories = current_user.family.memories
+    @memories = current_user.family.memories.shuffle
   end
 
   def new

@@ -5,7 +5,7 @@
   <%= render 'form' %>
   <br/>
 
-    <div class = "formpeople" id="deletebtn">
+<div class = "formpeople" id="deletebtn">
   <%= form_tag person_path(@person), method: 'delete', class: "form-inline" do %>
   <% if @person == current_user %>
     <%= submit_tag 'Delete Account', class: "btn btn-default" %>

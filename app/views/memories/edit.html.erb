@@ -4,7 +4,12 @@
   <h2>Edit Memory</h2><br/>
 
   <%= render 'form' %><br/>
-  <%= form_tag memory_path(@memory), method: 'delete' do %>
-   <%= submit_tag 'Delete Memory'%>
-  <% end %>
+
+  <div class = "formmemories" id="deletebtn">
+
+    <%= form_tag memory_path(@memory), method: 'delete' do %>
+     <%= submit_tag 'Delete Memory', class: "btn btn-default"%>
+    <% end %>
+
+  </div>
 <% end %>
