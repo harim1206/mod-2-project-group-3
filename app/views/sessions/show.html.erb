@@ -6,27 +6,26 @@
 
       <div class = "ek-memory-name">
 
-
         <div class = "show-links">
-          <%= link_to "View All Family Members", people_path %><br/>
-          <%= link_to "Add New Family Member", new_person_path %><br/>
-          <%= link_to "View All Memories", memories_path %><br/>
-          <%= link_to "Add New Memory", new_memory_path %><br/>
+          <p class = "ek-link"><%= link_to "View All Family Members", people_path %></p>
+          <p class = "ek-link"><%= link_to "Add New Family Member", new_person_path %></p>
+          <p class = "ek-link"><%= link_to "View All Memories", memories_path %></p>
+          <p class = "ek-link"><%= link_to "Add New Memory", new_memory_path %></p>
+
         </div>
 
 
         <% @people.each do |person| %>
-          <p><%= link_to person.full_name, person %></p>
+          <p id="ek-person-name"><%= link_to person.full_name, person %></p>
         <% end %>
       </div>
+      
     </div>
 
     <div class="ek-memory-image-container col-md-10">
       <% if @memories %>
         <% @memories.each_with_index do |memory, index| %>
-
-
-          <div>
+          <div class="ek-memory-image-container-div">
             <div class="ek-memory-column">
               <% if memory.image.url != "/app/assets/images/missing_memory.jpg"%>
                 <%= link_to image_tag(memory.image.url(:medium)), memory %>

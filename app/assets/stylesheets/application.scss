@@ -55,7 +55,7 @@
    // border: 1px solid;
    padding-bottom: 0px;
 
-   padding-left: 40px;
+   padding-left: 6rem;
    font-weight: bold;
 
 
@@ -78,7 +78,9 @@
    margin-right: 5px;
  }
 
-
+#family-initial-logo a{
+  color: black !important;
+}
 
 
 
@@ -88,7 +90,7 @@
 
  .masthead{
    height: 100%;
-   background: url(/assets/masthead.jpg) center scroll;
+   background: url(/assets/main-bg-2.jpg) center scroll;
    background-color: black;
    background-position: top;
    margin-top: -20px;
@@ -183,33 +185,45 @@
 }
 
 .ek-memory-name-container{
-  text-align: center;
+  text-align: center !important;
 
-  padding-left: 5rem;
+  padding-left: 1rem !important;
 }
 
 .ek-memory-name{
-  padding-top: 2rem;
-  padding-left: 5rem;
-  text-align:left;
-  margin: auto;
-  border-left: solid 1px #BFBFBF;
-  border-right: solid 1px #BFBFBF;
-  height: 100%;
+  padding-top: 2rem !important;
+  padding-left: 5rem !important;
+  padding-right: 2rem !important;
+  text-align: left  !important;
+  margin: auto  !important;
+  border-left: solid 1px #BFBFBF  !important;
+  border-right: solid 1px #BFBFBF  !important;
+  height: 100%  !important;
 
 }
 
-.show-links a{
-  margin-bottom: 4rem;
+.ek-link{
+  margin-bottom: 10rem  !important;
+}
+.ek-link a{
+
+  color: black !important;
+  font-size: 1.3rem !important;
+}
+
+
+#ek-person-name a{
+  color: black !important;
+  font-size: 1.3rem !important;
 }
 
 .ek-memory-name .show-links{
-  margin-bottom: 4rem;
+  margin-bottom: 4rem  !important;
 }
 
 
 .ek-memory-container img{
-  width: 100%
+  width: 100%  !important;
 }
 
 .ek-memory-name p{
@@ -218,28 +232,33 @@
 
 
 .ek-memory-image-container{
-  display:flex;
-  flex-wrap: wrap;
+  display:flex  !important;
+  flex-wrap: wrap  !important;
+
+}
+
+.ek-memory-image-container-div{
+
 }
 
 .ek-memory-column{
-  border: solid 1px lightgrey;
-  margin: 10px;
+  border: solid 1px lightgrey  !important;
+  margin: 10px  !important;
 }
 
 .ek-memory-column img{
-  max-width: 325px;
-  max-height: 325px;
+  max-width: 325px  !important;
+  max-height: 325px  !important;
 
 }
 
 .ek-memory-column p{
-  font-size: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  max-width: 12rem;
-  word-wrap: break-word;
+  font-size: 1rem  !important;
+  margin-left: auto  !important;
+  margin-right: auto  !important;
+  text-align: center  !important;
+  max-width: 12rem  !important;
+  word-wrap: break-word  !important;
 }
 
 
