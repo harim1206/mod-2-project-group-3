@@ -8,11 +8,14 @@
 <% end %><br/>
 
 <h2> Choose A Family </h2>
-
+<center>
+<div class= "formeditfamily">
 <%= form_tag "/existingsignup" do %>
   <%= label_tag :choose_family %> <br/>
   <%= collection_select :family, :family_id, @families, :id, :family_name_and_id, prompt: true%><br/>
   <%= label_tag :family_password %><br/>
-  <%= password_field_tag :family_password %> <br/>
-  <%= submit_tag "Choose Family" %>
+  <%= password_field_tag :family_password %> <br/><br>
+  <%= submit_tag "Choose Family" %> <br><br>
+</div>
+</center>
 <% end %>

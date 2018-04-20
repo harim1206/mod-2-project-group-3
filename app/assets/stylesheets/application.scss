@@ -407,10 +407,17 @@ align-content: right;
 .form-check-label{
   padding-left: 2rem;
 }
+
+// family/edit and sessions/editselfaccount
+
+.formeditfamily{
+  display: inline-block;
+  text-align: center;
+}
 // /family/new
 .formfamily{
-  padding-left: 600px;
-  padding-right: 100px;
+  padding-left: 60rem;
+  padding-right: 10rem;
   align-content: right;
 }
 
@@ -419,7 +426,6 @@ align-content: right;
   background-position: 10% 0%;
   background-size: contain;
 }
-
 
 footer{
   border-top: 1px solid lightgrey;

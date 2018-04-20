@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20180419125638) do
   create_table "families", force: :cascade do |t|
     t.string "family_name"
     t.string "password_digest"
-    t.string "family_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -3,7 +3,6 @@ class CreateFamilies < ActiveRecord::Migration[5.1]
     create_table :families do |t|
       t.string :family_name
       t.string :password_digest
-      t.string :family_info
 
       t.timestamps
     end
