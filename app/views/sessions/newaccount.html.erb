@@ -8,30 +8,35 @@
 <% end %><br/>
 
 <h2>New Person Signup</h2>
+<div class="bodynewaccount" >
 
-<div class = "hc-sign-up-form">
-  <div class="hc-sign-up-form-container">
-    <%= form_for @person, url: '/signup' do |f| %>
-      <%= f.label :first_name %><br/>
-      <%= f.text_field :first_name %><br/>
-      <%= f.label :last_name %><br/>
-      <%= f.text_field :last_name %><br/>
-      <%= f.label :date_of_birth %><br/>
-      <%= f.date_field :dob %></br>
-      <%= f.label :bio %> <br/>
-      <%= f.text_area :bio %> <br/>
-      <%= f.label :family %><br/>
-      <%= f.collection_select :family_id, @families, :id, :family_name_and_id, prompt: true%><br/>
-      <%= f.label :family_password %><br/>
-      <%= f.password_field :family_password %><br/>
-      <%= f.label :username %><br/>
-      <%= f.text_field :username %><br/>
-      <%= f.label :password %><br/>
-      <%= f.password_field :password %><br/>
-      <%= f.label :password_confirmation %><br/>
-      <%= f.password_field :password_confirmation %><br/>
-      <%= f.submit "Submit" %>
+
+    <div class="formnewaccount">
+
+
+
+    <%= bootstrap_form_for @person, url: '/signup' do |f| %>
+
+      <%= f.text_field :first_name %>
+
+      <%= f.text_field :last_name %>
+
+      <%= f.date_field :dob, label: "Date of Birth" %>
+
+      <%= f.text_area :bio %>
+
+      <%= f.collection_select :family_id, @families, :id, :family_name_and_id, prompt: true%>
+
+      <center><%= link_to "Register Family", new_family_path  %> </center>
+
+      <%= f.password_field :family_password %>
+
+      <%= f.text_field :username %>
+
+      <%= f.password_field :password %>
+
+      <%= f.password_field :password_confirmation %>
+      <%= f.submit "Submit" %> <br></br> <br></br>
     <% end %>
   </div>
-
-</div>
+  </div>
