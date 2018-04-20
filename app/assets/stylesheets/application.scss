@@ -197,7 +197,6 @@
   padding-right: 2rem !important;
   text-align: left  !important;
   margin: auto  !important;
-  border-left: solid 1px #BFBFBF  !important;
   border-right: solid 1px #BFBFBF  !important;
   height: 100%  !important;
 
@@ -240,16 +239,19 @@
 
 .ek-memory-image-container-div{
 
+
 }
 
 .ek-memory-column{
-  border: solid 1px lightgrey  !important;
+  border: solid 1px #dedfe0 !important;
   margin: 10px  !important;
+  text-align: center !important;
 }
 
 .ek-memory-column img{
-  max-width: 325px  !important;
-  max-height: 325px  !important;
+  max-width: 275px  !important;
+  max-height: 275px  !important;
+  margin-top: 1rem !important;
 
 }
 
@@ -261,6 +263,89 @@
   max-width: 12rem  !important;
   word-wrap: break-word  !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+//session/show - GRID LAYOUT
+
+.hc-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+  width:100%;
+  padding-right: 5rem;
+}
+
+.hc-grid-column {
+  flex: 33%;
+  max-width: 33%;
+  padding: 0 4px;
+}
+
+
+.ek-memory-image-container-div {
+
+  vertical-align: middle;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 1100px) {
+  .hc-grid-column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 900px) {
+  .hc-grid-column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+
+  .row{
+    padding-left: 15rem !important;
+    padding-right: 25rem !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
