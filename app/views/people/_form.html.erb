@@ -26,11 +26,7 @@
 
         <%= f.file_field :image %><br/>
 
-        <% if @person == current_user %>
-          <%= f.submit "Update Account" %>
-        <% else %>
-          <%= f.submit %>
-        <% end %>
+        <%= f.submit %>
       <% end %>
 
 

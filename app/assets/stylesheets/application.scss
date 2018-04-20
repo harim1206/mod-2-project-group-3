@@ -157,20 +157,18 @@
 //  sessions/newaccount.html.erb
 //
 
-.hc-sign-up-form{
-  height:100%;
-  text-align:center;
-}
-.hc-sign-up-form-container{
-  display: inline-block;
-}
-
-.hc-sign-up-form form{
-  padding-top: 5rem;
-  text-align: left
-
-
-}
+// .hc-sign-up-form{
+//   height:100%;
+//   text-align:center;
+// }
+// .hc-sign-up-form-container{
+//   display: inline-block;
+// }
+//
+// .hc-sign-up-form form{
+//   padding-top: 5rem;
+//   text-align: left
+// }
 
 
 
@@ -404,4 +402,25 @@ align-content: right;
 
 footer{
   border-top: 1px solid lightgrey;
+}
+
+.bodynewaccount{
+  background: url("/assets/tree1.jpg") no-repeat;
+  background-position: 10% 40%;
+
+
+
+
+}
+.formnewaccount{
+  position: border-top;
+  padding-left: 600px;
+  padding-right: 100px;
+  align-content: right;
+
+}
+
+  #deletebtn{
+  padding-bottom: 2rem;
+
 }

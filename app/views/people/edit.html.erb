@@ -4,11 +4,16 @@
   <h2> Edit <%= @person.full_name %> </h2>
   <%= render 'form' %>
   <br/>
-  <%= form_tag person_path(@person), method: 'delete' do %>
+
+    <div class = "formpeople" id="deletebtn">
+  <%= form_tag person_path(@person), method: 'delete', class: "form-inline" do %>
   <% if @person == current_user %>
-    <%= submit_tag('Delete Account') %>
+    <%= submit_tag 'Delete Account', class: "btn btn-default" %>
   <% else %>
-    <%= submit_tag('Delete Person') %>
+    <%= submit_tag 'Delete Person', class: "btn btn-default" %>
   <% end %>
   <% end %>
+
+</div>
+
 <% end %>
