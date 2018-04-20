@@ -10,7 +10,7 @@
     </ul>
   <% end %><br/>
 
-  <h2>Edit <%= @family.family_name %> Family</h2>
+  <h2>Edit <%= @family.family_name.capitalize %> Family</h2>
 
   <%= form_for @family do |f| %>
     <%= f.label :family_name %><br/>

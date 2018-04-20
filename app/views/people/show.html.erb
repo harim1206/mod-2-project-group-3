@@ -18,7 +18,7 @@
 
 
 <div class="container-fluid">
-  <h2> <%=  @person.first_name %> <%= @person.last_name %></h2>
+  <h2> <%=  @person.full_name%> </h2>
   <center><img src=" <%= @person.image.url (:large)%> " alt="" class="img-rounded"></center>
 
   <% if @person.image.url != "/app/assets/images/missing_user.png"%>
@@ -34,7 +34,6 @@
     <label>Biography: </label>  <%= @person.bio %></br></br>
     <label>Date of Birth: </label>  <%= @person.dob %></br></br>
     <% if @person.dod %>
-      <label>Date of Death: </label>  <%= @person.dod %></br></br>
       <label>Date of Death: </label>  <%= @person.dod %></br></br>
     <% end  %>
   </div>
