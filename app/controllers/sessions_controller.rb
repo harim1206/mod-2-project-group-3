@@ -72,8 +72,9 @@ class SessionsController < ApplicationController
 
   def show
     if current_user.family.memories.shuffle.any?
-      @memories = current_user.family.meatmories.shuffle.slice(0..9)
+      @memories = current_user.family.memories.shuffle.slice(0..9)
     end
+    @people = current_user.family.people
   end
 
   def edit
